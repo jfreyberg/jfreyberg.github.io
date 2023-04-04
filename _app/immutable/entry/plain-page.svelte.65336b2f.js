@@ -19,7 +19,7 @@ function create_fragment(ctx) {
       this.h();
     },
     h() {
-      attr(div, "class", "w-full bg-white flex overflow-scroll items-center justify-center");
+      attr(div, "class", "w-full h-screen bg-white flex overflow-y-scroll items-center relative");
     },
     m(target, anchor) {
       insert_hydration(target, div, anchor);

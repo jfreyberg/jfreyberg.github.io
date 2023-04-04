@@ -608,123 +608,151 @@ function create_if_block_4(ctx) {
   };
 }
 function create_if_block_2(ctx) {
-  let div10;
-  let div9;
+  let div14;
+  let div13;
   let div0;
   let t0;
+  let div2;
   let div1;
   let t1;
-  let div2;
-  let t2;
   let div3;
-  let t3;
-  let div4;
-  let t4;
+  let t2;
   let div5;
-  let t5;
+  let div4;
+  let t3;
   let div6;
-  let t6;
-  let div7;
-  let t7;
+  let t4;
   let div8;
+  let div7;
+  let t5;
+  let div9;
+  let t6;
+  let div11;
+  let div10;
+  let t7;
+  let div12;
   let mounted;
   let dispose;
   return {
     c() {
-      div10 = element("div");
-      div9 = element("div");
+      div14 = element("div");
+      div13 = element("div");
       div0 = element("div");
       t0 = space();
+      div2 = element("div");
       div1 = element("div");
       t1 = space();
-      div2 = element("div");
-      t2 = space();
       div3 = element("div");
-      t3 = space();
-      div4 = element("div");
-      t4 = space();
+      t2 = space();
       div5 = element("div");
-      t5 = space();
+      div4 = element("div");
+      t3 = space();
       div6 = element("div");
-      t6 = space();
-      div7 = element("div");
-      t7 = space();
+      t4 = space();
       div8 = element("div");
+      div7 = element("div");
+      t5 = space();
+      div9 = element("div");
+      t6 = space();
+      div11 = element("div");
+      div10 = element("div");
+      t7 = space();
+      div12 = element("div");
       this.h();
     },
     l(nodes) {
-      div10 = claim_element(nodes, "DIV", { id: true, class: true });
-      var div10_nodes = children(div10);
-      div9 = claim_element(div10_nodes, "DIV", { class: true });
-      var div9_nodes = children(div9);
-      div0 = claim_element(div9_nodes, "DIV", { class: true });
+      div14 = claim_element(nodes, "DIV", { id: true, class: true });
+      var div14_nodes = children(div14);
+      div13 = claim_element(div14_nodes, "DIV", { class: true });
+      var div13_nodes = children(div13);
+      div0 = claim_element(div13_nodes, "DIV", { class: true });
       children(div0).forEach(detach);
-      t0 = claim_space(div9_nodes);
-      div1 = claim_element(div9_nodes, "DIV", { class: true, style: true });
+      t0 = claim_space(div13_nodes);
+      div2 = claim_element(div13_nodes, "DIV", { class: true });
+      var div2_nodes = children(div2);
+      div1 = claim_element(div2_nodes, "DIV", { class: true, style: true });
       children(div1).forEach(detach);
-      t1 = claim_space(div9_nodes);
-      div2 = claim_element(div9_nodes, "DIV", { class: true });
-      children(div2).forEach(detach);
-      t2 = claim_space(div9_nodes);
-      div3 = claim_element(div9_nodes, "DIV", { class: true, style: true });
+      div2_nodes.forEach(detach);
+      t1 = claim_space(div13_nodes);
+      div3 = claim_element(div13_nodes, "DIV", { class: true });
       children(div3).forEach(detach);
-      t3 = claim_space(div9_nodes);
-      div4 = claim_element(div9_nodes, "DIV", { class: true });
+      t2 = claim_space(div13_nodes);
+      div5 = claim_element(div13_nodes, "DIV", { class: true });
+      var div5_nodes = children(div5);
+      div4 = claim_element(div5_nodes, "DIV", { class: true, style: true });
       children(div4).forEach(detach);
-      t4 = claim_space(div9_nodes);
-      div5 = claim_element(div9_nodes, "DIV", { class: true, style: true });
-      children(div5).forEach(detach);
-      t5 = claim_space(div9_nodes);
-      div6 = claim_element(div9_nodes, "DIV", { class: true });
+      div5_nodes.forEach(detach);
+      t3 = claim_space(div13_nodes);
+      div6 = claim_element(div13_nodes, "DIV", { class: true });
       children(div6).forEach(detach);
-      t6 = claim_space(div9_nodes);
-      div7 = claim_element(div9_nodes, "DIV", { class: true, style: true });
+      t4 = claim_space(div13_nodes);
+      div8 = claim_element(div13_nodes, "DIV", { class: true });
+      var div8_nodes = children(div8);
+      div7 = claim_element(div8_nodes, "DIV", { class: true, style: true });
       children(div7).forEach(detach);
-      t7 = claim_space(div9_nodes);
-      div8 = claim_element(div9_nodes, "DIV", { class: true });
-      children(div8).forEach(detach);
-      div9_nodes.forEach(detach);
-      div10_nodes.forEach(detach);
+      div8_nodes.forEach(detach);
+      t5 = claim_space(div13_nodes);
+      div9 = claim_element(div13_nodes, "DIV", { class: true });
+      children(div9).forEach(detach);
+      t6 = claim_space(div13_nodes);
+      div11 = claim_element(div13_nodes, "DIV", { class: true });
+      var div11_nodes = children(div11);
+      div10 = claim_element(div11_nodes, "DIV", { class: true, style: true });
+      children(div10).forEach(detach);
+      div11_nodes.forEach(detach);
+      t7 = claim_space(div13_nodes);
+      div12 = claim_element(div13_nodes, "DIV", { class: true });
+      children(div12).forEach(detach);
+      div13_nodes.forEach(detach);
+      div14_nodes.forEach(detach);
       this.h();
     },
     h() {
       attr(div0, "class", "w-full bg-transparent rounded-md");
-      attr(div1, "class", "w-full bg-white bg-opacity-50 rounded-md aspect-square border-4");
+      attr(div1, "class", "w-12 h-12 bg-white bg-opacity-50 rounded-md border-4");
       set_style(div1, "border-color", "rgba(255,255,255,0.7)");
-      attr(div2, "class", "w-full aspect-square bg-transparent rounded-md");
-      attr(div3, "class", "w-full bg-white bg-opacity-50 rounded-md aspect-square border-4");
-      set_style(div3, "border-color", "rgba(255,255,255,0.7)");
-      attr(div4, "class", "w-full aspect-square bg-transparent rounded-md");
-      attr(div5, "class", "w-full bg-white bg-opacity-50 rounded-md aspect-square border-4");
-      set_style(div5, "border-color", "rgba(255,255,255,0.7)");
+      attr(div2, "class", "w-full flex items-center jusitfy-center");
+      attr(div3, "class", "w-full aspect-square bg-transparent rounded-md");
+      attr(div4, "class", "w-12 h-12 bg-white bg-opacity-50 rounded-md border-4");
+      set_style(div4, "border-color", "rgba(255,255,255,0.7)");
+      attr(div5, "class", "w-full flex items-center jusitfy-center");
       attr(div6, "class", "w-full aspect-square bg-transparent rounded-md");
-      attr(div7, "class", "w-full bg-white bg-opacity-50 rounded-md aspect-square border-4");
+      attr(div7, "class", "w-12 h-12 bg-white bg-opacity-50 rounded-md border-4");
       set_style(div7, "border-color", "rgba(255,255,255,0.7)");
-      attr(div8, "class", "w-full h-full bg-transparent rounded-md");
-      attr(div9, "class", "w-1/2 h-auto grid grid-cols-3 gap-2");
-      attr(div10, "id", "overlay2");
-      attr(div10, "class", "w-screen h-screen bg-transparent absolute top-0 left-0 flex items-end justify-center p-8 md:hidden z-50");
+      attr(div8, "class", "w-full flex items-center jusitfy-center");
+      attr(div9, "class", "w-full aspect-square bg-transparent rounded-md");
+      attr(div10, "class", "w-12 h-12 bg-white bg-opacity-50 rounded-md border-4");
+      set_style(div10, "border-color", "rgba(255,255,255,0.7)");
+      attr(div11, "class", "w-full flex items-center jusitfy-center");
+      attr(div12, "class", "w-full h-full bg-transparent rounded-md");
+      attr(div13, "class", "w-1/2 h-auto grid grid-cols-3 gap-2");
+      attr(div14, "id", "overlay2");
+      attr(div14, "class", "w-screen h-screen bg-transparent absolute top-0 left-0 flex items-end justify-center p-8 md:hidden z-50");
     },
     m(target, anchor) {
-      insert_hydration(target, div10, anchor);
-      append_hydration(div10, div9);
-      append_hydration(div9, div0);
-      append_hydration(div9, t0);
-      append_hydration(div9, div1);
-      append_hydration(div9, t1);
-      append_hydration(div9, div2);
-      append_hydration(div9, t2);
-      append_hydration(div9, div3);
-      append_hydration(div9, t3);
-      append_hydration(div9, div4);
-      append_hydration(div9, t4);
-      append_hydration(div9, div5);
-      append_hydration(div9, t5);
-      append_hydration(div9, div6);
-      append_hydration(div9, t6);
-      append_hydration(div9, div7);
-      append_hydration(div9, t7);
-      append_hydration(div9, div8);
+      insert_hydration(target, div14, anchor);
+      append_hydration(div14, div13);
+      append_hydration(div13, div0);
+      append_hydration(div13, t0);
+      append_hydration(div13, div2);
+      append_hydration(div2, div1);
+      append_hydration(div13, t1);
+      append_hydration(div13, div3);
+      append_hydration(div13, t2);
+      append_hydration(div13, div5);
+      append_hydration(div5, div4);
+      append_hydration(div13, t3);
+      append_hydration(div13, div6);
+      append_hydration(div13, t4);
+      append_hydration(div13, div8);
+      append_hydration(div8, div7);
+      append_hydration(div13, t5);
+      append_hydration(div13, div9);
+      append_hydration(div13, t6);
+      append_hydration(div13, div11);
+      append_hydration(div11, div10);
+      append_hydration(div13, t7);
+      append_hydration(div13, div12);
       if (!mounted) {
         dispose = [
           listen(
@@ -734,19 +762,19 @@ function create_if_block_2(ctx) {
             ctx[21]
           ),
           listen(
-            div3,
+            div4,
             "click",
             /*click_handler_3*/
             ctx[22]
           ),
           listen(
-            div5,
+            div7,
             "click",
             /*click_handler_4*/
             ctx[23]
           ),
           listen(
-            div7,
+            div10,
             "click",
             /*click_handler_5*/
             ctx[24]
@@ -758,7 +786,7 @@ function create_if_block_2(ctx) {
     p: noop,
     d(detaching) {
       if (detaching)
-        detach(div10);
+        detach(div14);
       mounted = false;
       run_all(dispose);
     }
