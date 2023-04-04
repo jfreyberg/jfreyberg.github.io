@@ -1,6 +1,6 @@
 import { H as identity, S as SvelteComponent, i as init, s as safe_not_equal, k as element, a as space, l as claim_element, m as children, h as detach, c as claim_space, n as attr, p as set_style, b as insert_hydration, I as append_hydration, J as listen, K as update_keyed_each, g as transition_in, d as transition_out, f as check_outros, L as component_subscribe, o as onMount, e as empty, M as destroy_block, q as text, r as claim_text, u as set_data, N as add_render_callback, O as create_in_transition, G as noop, P as run_all, v as group_outros, Q as create_out_transition, R as svg_element, y as create_component, T as claim_svg_element, z as claim_component, A as mount_component, B as destroy_component, w as binding_callbacks } from "../chunks/index.0616d844.js";
 import { w as writable } from "../chunks/index.18cba605.js";
-import { C as CV } from "../chunks/CV.dd570973.js";
+import { C as CV } from "../chunks/CV.325e395f.js";
 function cubicOut(t) {
   const f = t - 1;
   return f * f * f + 1;
@@ -660,25 +660,25 @@ function create_if_block_2(ctx) {
       div0 = claim_element(div9_nodes, "DIV", { class: true });
       children(div0).forEach(detach);
       t0 = claim_space(div9_nodes);
-      div1 = claim_element(div9_nodes, "DIV", { class: true });
+      div1 = claim_element(div9_nodes, "DIV", { class: true, style: true });
       children(div1).forEach(detach);
       t1 = claim_space(div9_nodes);
       div2 = claim_element(div9_nodes, "DIV", { class: true });
       children(div2).forEach(detach);
       t2 = claim_space(div9_nodes);
-      div3 = claim_element(div9_nodes, "DIV", { class: true });
+      div3 = claim_element(div9_nodes, "DIV", { class: true, style: true });
       children(div3).forEach(detach);
       t3 = claim_space(div9_nodes);
       div4 = claim_element(div9_nodes, "DIV", { class: true });
       children(div4).forEach(detach);
       t4 = claim_space(div9_nodes);
-      div5 = claim_element(div9_nodes, "DIV", { class: true });
+      div5 = claim_element(div9_nodes, "DIV", { class: true, style: true });
       children(div5).forEach(detach);
       t5 = claim_space(div9_nodes);
       div6 = claim_element(div9_nodes, "DIV", { class: true });
       children(div6).forEach(detach);
       t6 = claim_space(div9_nodes);
-      div7 = claim_element(div9_nodes, "DIV", { class: true });
+      div7 = claim_element(div9_nodes, "DIV", { class: true, style: true });
       children(div7).forEach(detach);
       t7 = claim_space(div9_nodes);
       div8 = claim_element(div9_nodes, "DIV", { class: true });
@@ -689,13 +689,17 @@ function create_if_block_2(ctx) {
     },
     h() {
       attr(div0, "class", "w-full bg-transparent rounded-md");
-      attr(div1, "class", "w-full bg-white bg-opacity-50 rounded-md aspect-square border-[rgba(255,255,255,0.7)] border-4");
+      attr(div1, "class", "w-full bg-white bg-opacity-50 rounded-md aspect-square border-4");
+      set_style(div1, "border-color", "rgba(255,255,255,0.7)");
       attr(div2, "class", "w-full aspect-square bg-transparent rounded-md");
-      attr(div3, "class", "w-full h-full bg-white bg-opacity-50 rounded-md aspect-square border-[rgba(255,255,255,0.7)] border-4");
+      attr(div3, "class", "w-full bg-white bg-opacity-50 rounded-md aspect-square border-4");
+      set_style(div3, "border-color", "rgba(255,255,255,0.7)");
       attr(div4, "class", "w-full aspect-square bg-transparent rounded-md");
-      attr(div5, "class", "w-full h-full bg-white bg-opacity-50 rounded-md aspect-square border-[rgba(255,255,255,0.7)] border-4");
+      attr(div5, "class", "w-full bg-white bg-opacity-50 rounded-md aspect-square border-4");
+      set_style(div5, "border-color", "rgba(255,255,255,0.7)");
       attr(div6, "class", "w-full aspect-square bg-transparent rounded-md");
-      attr(div7, "class", "w-full h-full bg-white bg-opacity-50 rounded-md aspect-square border-[rgba(255,255,255,0.7)] border-4");
+      attr(div7, "class", "w-full bg-white bg-opacity-50 rounded-md aspect-square border-4");
+      set_style(div7, "border-color", "rgba(255,255,255,0.7)");
       attr(div8, "class", "w-full h-full bg-transparent rounded-md");
       attr(div9, "class", "w-1/2 h-auto grid grid-cols-3 gap-2");
       attr(div10, "id", "overlay2");

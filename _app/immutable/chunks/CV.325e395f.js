@@ -1,7 +1,193 @@
-import { S as SvelteComponent, i as init, s as safe_not_equal, k as element, a as space, q as text, l as claim_element, m as children, c as claim_space, r as claim_text, h as detach, U as src_url_equal, n as attr, p as set_style, b as insert_hydration, I as append_hydration, G as noop } from "./index.023a1cf2.js";
+import { S as SvelteComponent, i as init, s as safe_not_equal, k as element, q as text, a as space, l as claim_element, m as children, r as claim_text, h as detach, c as claim_space, n as attr, b as insert_hydration, I as append_hydration, u as set_data, G as noop, U as destroy_each, p as set_style, y as create_component, z as claim_component, V as src_url_equal, A as mount_component, g as transition_in, d as transition_out, B as destroy_component } from "./index.0616d844.js";
+function get_each_context(ctx, list, i) {
+  const child_ctx = ctx.slice();
+  child_ctx[3] = list[i];
+  return child_ctx;
+}
+function create_each_block(ctx) {
+  let div;
+  let t0_value = (
+    /*skill*/
+    ctx[3] + ""
+  );
+  let t0;
+  let t1;
+  return {
+    c() {
+      div = element("div");
+      t0 = text(t0_value);
+      t1 = space();
+      this.h();
+    },
+    l(nodes) {
+      div = claim_element(nodes, "DIV", { class: true, style: true });
+      var div_nodes = children(div);
+      t0 = claim_text(div_nodes, t0_value);
+      t1 = claim_space(div_nodes);
+      div_nodes.forEach(detach);
+      this.h();
+    },
+    h() {
+      attr(div, "class", "h-6 rounded-full border-2 px-2 leading-5 truncate");
+      set_style(
+        div,
+        "border-color",
+        /*color*/
+        ctx[2]
+      );
+    },
+    m(target, anchor) {
+      insert_hydration(target, div, anchor);
+      append_hydration(div, t0);
+      append_hydration(div, t1);
+    },
+    p(ctx2, dirty) {
+      if (dirty & /*skills*/
+      2 && t0_value !== (t0_value = /*skill*/
+      ctx2[3] + ""))
+        set_data(t0, t0_value);
+      if (dirty & /*color*/
+      4) {
+        set_style(
+          div,
+          "border-color",
+          /*color*/
+          ctx2[2]
+        );
+      }
+    },
+    d(detaching) {
+      if (detaching)
+        detach(div);
+    }
+  };
+}
+function create_fragment$1(ctx) {
+  let div1;
+  let p;
+  let t0;
+  let t1;
+  let div0;
+  let each_value = (
+    /*skills*/
+    ctx[1]
+  );
+  let each_blocks = [];
+  for (let i = 0; i < each_value.length; i += 1) {
+    each_blocks[i] = create_each_block(get_each_context(ctx, each_value, i));
+  }
+  return {
+    c() {
+      div1 = element("div");
+      p = element("p");
+      t0 = text(
+        /*title*/
+        ctx[0]
+      );
+      t1 = space();
+      div0 = element("div");
+      for (let i = 0; i < each_blocks.length; i += 1) {
+        each_blocks[i].c();
+      }
+      this.h();
+    },
+    l(nodes) {
+      div1 = claim_element(nodes, "DIV", { class: true });
+      var div1_nodes = children(div1);
+      p = claim_element(div1_nodes, "P", { class: true });
+      var p_nodes = children(p);
+      t0 = claim_text(
+        p_nodes,
+        /*title*/
+        ctx[0]
+      );
+      p_nodes.forEach(detach);
+      t1 = claim_space(div1_nodes);
+      div0 = claim_element(div1_nodes, "DIV", { class: true });
+      var div0_nodes = children(div0);
+      for (let i = 0; i < each_blocks.length; i += 1) {
+        each_blocks[i].l(div0_nodes);
+      }
+      div0_nodes.forEach(detach);
+      div1_nodes.forEach(detach);
+      this.h();
+    },
+    h() {
+      attr(p, "class", "text-sm font-bold ");
+      attr(div0, "class", "flex items-center flex-wrap text-xs gap-2 w-full h-auto");
+      attr(div1, "class", "flex flex-col gap-y-2");
+    },
+    m(target, anchor) {
+      insert_hydration(target, div1, anchor);
+      append_hydration(div1, p);
+      append_hydration(p, t0);
+      append_hydration(div1, t1);
+      append_hydration(div1, div0);
+      for (let i = 0; i < each_blocks.length; i += 1) {
+        each_blocks[i].m(div0, null);
+      }
+    },
+    p(ctx2, [dirty]) {
+      if (dirty & /*title*/
+      1)
+        set_data(
+          t0,
+          /*title*/
+          ctx2[0]
+        );
+      if (dirty & /*color, skills*/
+      6) {
+        each_value = /*skills*/
+        ctx2[1];
+        let i;
+        for (i = 0; i < each_value.length; i += 1) {
+          const child_ctx = get_each_context(ctx2, each_value, i);
+          if (each_blocks[i]) {
+            each_blocks[i].p(child_ctx, dirty);
+          } else {
+            each_blocks[i] = create_each_block(child_ctx);
+            each_blocks[i].c();
+            each_blocks[i].m(div0, null);
+          }
+        }
+        for (; i < each_blocks.length; i += 1) {
+          each_blocks[i].d(1);
+        }
+        each_blocks.length = each_value.length;
+      }
+    },
+    i: noop,
+    o: noop,
+    d(detaching) {
+      if (detaching)
+        detach(div1);
+      destroy_each(each_blocks, detaching);
+    }
+  };
+}
+function instance($$self, $$props, $$invalidate) {
+  let { title } = $$props;
+  let { skills } = $$props;
+  let { color } = $$props;
+  $$self.$$set = ($$props2) => {
+    if ("title" in $$props2)
+      $$invalidate(0, title = $$props2.title);
+    if ("skills" in $$props2)
+      $$invalidate(1, skills = $$props2.skills);
+    if ("color" in $$props2)
+      $$invalidate(2, color = $$props2.color);
+  };
+  return [title, skills, color];
+}
+class HardSkillsSection extends SvelteComponent {
+  constructor(options) {
+    super();
+    init(this, options, instance, create_fragment$1, safe_not_equal, { title: 0, skills: 1, color: 2 });
+  }
+}
 function create_fragment(ctx) {
-  let div252;
-  let div251;
+  let div163;
+  let div162;
   let div13;
   let div12;
   let img0;
@@ -618,7 +804,7 @@ function create_fragment(ctx) {
   let t272;
   let t273;
   let t274;
-  let div250;
+  let div161;
   let div159;
   let div157;
   let img29;
@@ -629,226 +815,71 @@ function create_fragment(ctx) {
   let t277;
   let div158;
   let t278;
-  let div249;
-  let div178;
-  let p28;
-  let t279;
-  let t280;
-  let div162;
-  let p29;
-  let t281;
-  let t282;
-  let div161;
   let div160;
-  let t283;
-  let div165;
-  let p30;
-  let t284;
-  let t285;
-  let div164;
-  let div163;
-  let t286;
-  let div168;
-  let p31;
-  let t287;
-  let t288;
-  let div167;
-  let div166;
-  let t289;
-  let div171;
-  let p32;
-  let t290;
-  let t291;
-  let div170;
-  let div169;
-  let t292;
-  let div174;
-  let p33;
-  let t293;
-  let t294;
-  let div173;
-  let div172;
-  let t295;
-  let div177;
-  let p34;
-  let t296;
-  let t297;
-  let div176;
-  let div175;
-  let t298;
-  let div197;
-  let p35;
-  let t299;
-  let t300;
-  let div181;
-  let p36;
-  let t301;
-  let t302;
-  let div180;
-  let div179;
-  let t303;
-  let div184;
-  let p37;
-  let t304;
-  let t305;
-  let div183;
-  let div182;
-  let t306;
-  let div187;
-  let p38;
-  let t307;
-  let t308;
-  let div186;
-  let div185;
-  let t309;
-  let div190;
-  let p39;
-  let t310;
-  let t311;
-  let div189;
-  let div188;
-  let t312;
-  let div193;
-  let p40;
-  let t313;
-  let t314;
-  let div192;
-  let div191;
-  let t315;
-  let div196;
-  let p41;
-  let t316;
-  let t317;
-  let div195;
-  let div194;
-  let t318;
-  let div213;
-  let p42;
-  let t319;
-  let t320;
-  let div200;
-  let p43;
-  let t321;
-  let t322;
-  let div199;
-  let div198;
-  let t323;
-  let div203;
-  let p44;
-  let t324;
-  let t325;
-  let div202;
-  let div201;
-  let t326;
-  let div206;
-  let p45;
-  let t327;
-  let t328;
-  let div205;
-  let div204;
-  let t329;
-  let div209;
-  let p46;
-  let t330;
-  let t331;
-  let div208;
-  let div207;
-  let t332;
-  let div212;
-  let p47;
-  let t333;
-  let t334;
-  let div211;
-  let div210;
-  let t335;
-  let div232;
-  let p48;
-  let t336;
-  let t337;
-  let div216;
-  let p49;
-  let t338;
-  let t339;
-  let div215;
-  let div214;
-  let t340;
-  let div219;
-  let p50;
-  let t341;
-  let t342;
-  let div218;
-  let div217;
-  let t343;
-  let div222;
-  let p51;
-  let t344;
-  let t345;
-  let div221;
-  let div220;
-  let t346;
-  let div225;
-  let p52;
-  let t347;
-  let t348;
-  let div224;
-  let div223;
-  let t349;
-  let div228;
-  let p53;
-  let t350;
-  let t351;
-  let div227;
-  let div226;
-  let t352;
-  let div231;
-  let p54;
-  let t353;
-  let t354;
-  let div230;
-  let div229;
-  let t355;
-  let div248;
-  let p55;
-  let t356;
-  let t357;
-  let div235;
-  let p56;
-  let t358;
-  let t359;
-  let div234;
-  let div233;
-  let t360;
-  let div238;
-  let p57;
-  let t361;
-  let t362;
-  let div237;
-  let div236;
-  let t363;
-  let div241;
-  let p58;
-  let t364;
-  let t365;
-  let div240;
-  let div239;
-  let t366;
-  let div244;
-  let p59;
-  let t367;
-  let t368;
-  let div243;
-  let div242;
-  let t369;
-  let div247;
-  let p60;
-  let t370;
-  let t371;
-  let div246;
-  let div245;
+  let hardskillssection0;
+  let t279;
+  let hardskillssection1;
+  let t280;
+  let hardskillssection2;
+  let t281;
+  let hardskillssection3;
+  let t282;
+  let hardskillssection4;
+  let current;
+  hardskillssection0 = new HardSkillsSection({
+    props: {
+      title: "Data Science",
+      skills: [
+        "Python",
+        "R",
+        "Statistics",
+        "Matlab",
+        "Machine Learning",
+        "Data Visualization"
+      ],
+      color: "#8b91e3"
+    }
+  });
+  hardskillssection1 = new HardSkillsSection({
+    props: {
+      title: "Databases/MQ",
+      skills: [
+        "SQL",
+        "Postgres",
+        "Elasticsearch",
+        "MongoDB",
+        "Redis",
+        "Supabase",
+        "Kafka"
+      ],
+      color: "#f9d29b"
+    }
+  });
+  hardskillssection2 = new HardSkillsSection({
+    props: {
+      title: "Backend",
+      skills: ["FastAPI", "Django", "Node", "OOP", "Java", "PHP", "C#/C++"],
+      color: "#f9b4b6"
+    }
+  });
+  hardskillssection3 = new HardSkillsSection({
+    props: {
+      title: "Frontend",
+      skills: ["JavaScript", "React", "HTML/CSS", "Svelte", "Tailwind", "UI Design"],
+      color: "#cce0b0"
+    }
+  });
+  hardskillssection4 = new HardSkillsSection({
+    props: {
+      title: "DevOps",
+      skills: ["Docker", "Git", "VS Code", "Jupyter", "Linux", "bash", "GCP"],
+      color: "#d9c1f5"
+    }
+  });
   return {
     c() {
-      div252 = element("div");
-      div251 = element("div");
+      div163 = element("div");
+      div162 = element("div");
       div13 = element("div");
       div12 = element("div");
       img0 = element("img");
@@ -1266,7 +1297,7 @@ function create_fragment(ctx) {
       div120 = element("div");
       a10 = element("a");
       p16 = element("p");
-      t189 = text("Pandemic Simulation based Countermeasure Learning");
+      t189 = text("Pandemic Simulation Countermeasure Learning");
       t190 = space();
       div119 = element("div");
       img24 = element("img");
@@ -1293,7 +1324,7 @@ function create_fragment(ctx) {
       div126 = element("div");
       a11 = element("a");
       p18 = element("p");
-      t202 = text("Analysis of Topics discussed in the German Bundestag");
+      t202 = text("Analysis of Topics discussed in Bundestag");
       t203 = space();
       div125 = element("div");
       img25 = element("img");
@@ -1433,10 +1464,10 @@ function create_fragment(ctx) {
       li44 = element("li");
       t271 = text("my personal ");
       span37 = element("span");
-      t272 = text("highsore is 75");
+      t272 = text("highsore is 84");
       t273 = text(", can you\n              beat me?");
       t274 = space();
-      div250 = element("div");
+      div161 = element("div");
       div159 = element("div");
       div157 = element("div");
       img29 = element("img");
@@ -1446,230 +1477,24 @@ function create_fragment(ctx) {
       t277 = space();
       div158 = element("div");
       t278 = space();
-      div249 = element("div");
-      div178 = element("div");
-      p28 = element("p");
-      t279 = text("Data Science");
-      t280 = space();
-      div162 = element("div");
-      p29 = element("p");
-      t281 = text("Python");
-      t282 = space();
-      div161 = element("div");
       div160 = element("div");
-      t283 = space();
-      div165 = element("div");
-      p30 = element("p");
-      t284 = text("Visualization");
-      t285 = space();
-      div164 = element("div");
-      div163 = element("div");
-      t286 = space();
-      div168 = element("div");
-      p31 = element("p");
-      t287 = text("R");
-      t288 = space();
-      div167 = element("div");
-      div166 = element("div");
-      t289 = space();
-      div171 = element("div");
-      p32 = element("p");
-      t290 = text("Statistics");
-      t291 = space();
-      div170 = element("div");
-      div169 = element("div");
-      t292 = space();
-      div174 = element("div");
-      p33 = element("p");
-      t293 = text("Kafka");
-      t294 = space();
-      div173 = element("div");
-      div172 = element("div");
-      t295 = space();
-      div177 = element("div");
-      p34 = element("p");
-      t296 = text("Matlab");
-      t297 = space();
-      div176 = element("div");
-      div175 = element("div");
-      t298 = space();
-      div197 = element("div");
-      p35 = element("p");
-      t299 = text("Databases");
-      t300 = space();
-      div181 = element("div");
-      p36 = element("p");
-      t301 = text("SQL");
-      t302 = space();
-      div180 = element("div");
-      div179 = element("div");
-      t303 = space();
-      div184 = element("div");
-      p37 = element("p");
-      t304 = text("Postgres");
-      t305 = space();
-      div183 = element("div");
-      div182 = element("div");
-      t306 = space();
-      div187 = element("div");
-      p38 = element("p");
-      t307 = text("Supabase");
-      t308 = space();
-      div186 = element("div");
-      div185 = element("div");
-      t309 = space();
-      div190 = element("div");
-      p39 = element("p");
-      t310 = text("MongoDB");
-      t311 = space();
-      div189 = element("div");
-      div188 = element("div");
-      t312 = space();
-      div193 = element("div");
-      p40 = element("p");
-      t313 = text("Elasticsearch");
-      t314 = space();
-      div192 = element("div");
-      div191 = element("div");
-      t315 = space();
-      div196 = element("div");
-      p41 = element("p");
-      t316 = text("Redis");
-      t317 = space();
-      div195 = element("div");
-      div194 = element("div");
-      t318 = space();
-      div213 = element("div");
-      p42 = element("p");
-      t319 = text("DevOps");
-      t320 = space();
-      div200 = element("div");
-      p43 = element("p");
-      t321 = text("Docker");
-      t322 = space();
-      div199 = element("div");
-      div198 = element("div");
-      t323 = space();
-      div203 = element("div");
-      p44 = element("p");
-      t324 = text("VS Code");
-      t325 = space();
-      div202 = element("div");
-      div201 = element("div");
-      t326 = space();
-      div206 = element("div");
-      p45 = element("p");
-      t327 = text("Git");
-      t328 = space();
-      div205 = element("div");
-      div204 = element("div");
-      t329 = space();
-      div209 = element("div");
-      p46 = element("p");
-      t330 = text("Jupyter");
-      t331 = space();
-      div208 = element("div");
-      div207 = element("div");
-      t332 = space();
-      div212 = element("div");
-      p47 = element("p");
-      t333 = text("Jira");
-      t334 = space();
-      div211 = element("div");
-      div210 = element("div");
-      t335 = space();
-      div232 = element("div");
-      p48 = element("p");
-      t336 = text("Backend");
-      t337 = space();
-      div216 = element("div");
-      p49 = element("p");
-      t338 = text("Python");
-      t339 = space();
-      div215 = element("div");
-      div214 = element("div");
-      t340 = space();
-      div219 = element("div");
-      p50 = element("p");
-      t341 = text("REST APIs");
-      t342 = space();
-      div218 = element("div");
-      div217 = element("div");
-      t343 = space();
-      div222 = element("div");
-      p51 = element("p");
-      t344 = text("Java");
-      t345 = space();
-      div221 = element("div");
-      div220 = element("div");
-      t346 = space();
-      div225 = element("div");
-      p52 = element("p");
-      t347 = text("bash");
-      t348 = space();
-      div224 = element("div");
-      div223 = element("div");
-      t349 = space();
-      div228 = element("div");
-      p53 = element("p");
-      t350 = text("C#/C++");
-      t351 = space();
-      div227 = element("div");
-      div226 = element("div");
-      t352 = space();
-      div231 = element("div");
-      p54 = element("p");
-      t353 = text("PHP");
-      t354 = space();
-      div230 = element("div");
-      div229 = element("div");
-      t355 = space();
-      div248 = element("div");
-      p55 = element("p");
-      t356 = text("Frontend");
-      t357 = space();
-      div235 = element("div");
-      p56 = element("p");
-      t358 = text("Svelte");
-      t359 = space();
-      div234 = element("div");
-      div233 = element("div");
-      t360 = space();
-      div238 = element("div");
-      p57 = element("p");
-      t361 = text("HTML/CSS");
-      t362 = space();
-      div237 = element("div");
-      div236 = element("div");
-      t363 = space();
-      div241 = element("div");
-      p58 = element("p");
-      t364 = text("JavaScript");
-      t365 = space();
-      div240 = element("div");
-      div239 = element("div");
-      t366 = space();
-      div244 = element("div");
-      p59 = element("p");
-      t367 = text("React");
-      t368 = space();
-      div243 = element("div");
-      div242 = element("div");
-      t369 = space();
-      div247 = element("div");
-      p60 = element("p");
-      t370 = text("UI Design");
-      t371 = space();
-      div246 = element("div");
-      div245 = element("div");
+      create_component(hardskillssection0.$$.fragment);
+      t279 = space();
+      create_component(hardskillssection1.$$.fragment);
+      t280 = space();
+      create_component(hardskillssection2.$$.fragment);
+      t281 = space();
+      create_component(hardskillssection3.$$.fragment);
+      t282 = space();
+      create_component(hardskillssection4.$$.fragment);
       this.h();
     },
     l(nodes) {
-      div252 = claim_element(nodes, "DIV", { class: true, style: true });
-      var div252_nodes = children(div252);
-      div251 = claim_element(div252_nodes, "DIV", { class: true });
-      var div251_nodes = children(div251);
-      div13 = claim_element(div251_nodes, "DIV", { class: true });
+      div163 = claim_element(nodes, "DIV", { class: true, style: true });
+      var div163_nodes = children(div163);
+      div162 = claim_element(div163_nodes, "DIV", { class: true });
+      var div162_nodes = children(div162);
+      div13 = claim_element(div162_nodes, "DIV", { class: true });
       var div13_nodes = children(div13);
       div12 = claim_element(div13_nodes, "DIV", { class: true });
       var div12_nodes = children(div12);
@@ -1758,8 +1583,8 @@ function create_fragment(ctx) {
       div11_nodes.forEach(detach);
       div12_nodes.forEach(detach);
       div13_nodes.forEach(detach);
-      t18 = claim_space(div251_nodes);
-      div14 = claim_element(div251_nodes, "DIV", { class: true });
+      t18 = claim_space(div162_nodes);
+      div14 = claim_element(div162_nodes, "DIV", { class: true });
       var div14_nodes = children(div14);
       li0 = claim_element(div14_nodes, "LI", { class: true });
       var li0_nodes = children(li0);
@@ -1780,8 +1605,8 @@ function create_fragment(ctx) {
       t24 = claim_text(li1_nodes, ".");
       li1_nodes.forEach(detach);
       div14_nodes.forEach(detach);
-      t25 = claim_space(div251_nodes);
-      div155 = claim_element(div251_nodes, "DIV", { class: true });
+      t25 = claim_space(div162_nodes);
+      div155 = claim_element(div162_nodes, "DIV", { class: true });
       var div155_nodes = children(div155);
       div95 = claim_element(div155_nodes, "DIV", { class: true });
       var div95_nodes = children(div95);
@@ -2479,7 +2304,7 @@ function create_fragment(ctx) {
       var a10_nodes = children(a10);
       p16 = claim_element(a10_nodes, "P", { class: true });
       var p16_nodes = children(p16);
-      t189 = claim_text(p16_nodes, "Pandemic Simulation based Countermeasure Learning");
+      t189 = claim_text(p16_nodes, "Pandemic Simulation Countermeasure Learning");
       p16_nodes.forEach(detach);
       t190 = claim_space(a10_nodes);
       div119 = claim_element(a10_nodes, "DIV", { class: true });
@@ -2531,7 +2356,7 @@ function create_fragment(ctx) {
       var a11_nodes = children(a11);
       p18 = claim_element(a11_nodes, "P", { class: true });
       var p18_nodes = children(p18);
-      t202 = claim_text(p18_nodes, "Analysis of Topics discussed in the German Bundestag");
+      t202 = claim_text(p18_nodes, "Analysis of Topics discussed in Bundestag");
       p18_nodes.forEach(detach);
       t203 = claim_space(a11_nodes);
       div125 = claim_element(a11_nodes, "DIV", { class: true });
@@ -2799,7 +2624,7 @@ function create_fragment(ctx) {
       t271 = claim_text(li44_nodes, "my personal ");
       span37 = claim_element(li44_nodes, "SPAN", { class: true });
       var span37_nodes = children(span37);
-      t272 = claim_text(span37_nodes, "highsore is 75");
+      t272 = claim_text(span37_nodes, "highsore is 84");
       span37_nodes.forEach(detach);
       t273 = claim_text(li44_nodes, ", can you\n              beat me?");
       li44_nodes.forEach(detach);
@@ -2807,10 +2632,10 @@ function create_fragment(ctx) {
       div153_nodes.forEach(detach);
       div154_nodes.forEach(detach);
       div155_nodes.forEach(detach);
-      t274 = claim_space(div251_nodes);
-      div250 = claim_element(div251_nodes, "DIV", { class: true });
-      var div250_nodes = children(div250);
-      div159 = claim_element(div250_nodes, "DIV", { class: true });
+      t274 = claim_space(div162_nodes);
+      div161 = claim_element(div162_nodes, "DIV", { class: true });
+      var div161_nodes = children(div161);
+      div159 = claim_element(div161_nodes, "DIV", { class: true });
       var div159_nodes = children(div159);
       div157 = claim_element(div159_nodes, "DIV", { class: true });
       var div157_nodes = children(div157);
@@ -2825,444 +2650,22 @@ function create_fragment(ctx) {
       div158 = claim_element(div159_nodes, "DIV", { class: true });
       children(div158).forEach(detach);
       div159_nodes.forEach(detach);
-      t278 = claim_space(div250_nodes);
-      div249 = claim_element(div250_nodes, "DIV", { class: true });
-      var div249_nodes = children(div249);
-      div178 = claim_element(div249_nodes, "DIV", { class: true });
-      var div178_nodes = children(div178);
-      p28 = claim_element(div178_nodes, "P", { class: true });
-      var p28_nodes = children(p28);
-      t279 = claim_text(p28_nodes, "Data Science");
-      p28_nodes.forEach(detach);
-      t280 = claim_space(div178_nodes);
-      div162 = claim_element(div178_nodes, "DIV", { class: true });
-      var div162_nodes = children(div162);
-      p29 = claim_element(div162_nodes, "P", { class: true });
-      var p29_nodes = children(p29);
-      t281 = claim_text(p29_nodes, "Python");
-      p29_nodes.forEach(detach);
-      t282 = claim_space(div162_nodes);
-      div161 = claim_element(div162_nodes, "DIV", { class: true });
-      var div161_nodes = children(div161);
+      t278 = claim_space(div161_nodes);
       div160 = claim_element(div161_nodes, "DIV", { class: true });
-      children(div160).forEach(detach);
+      var div160_nodes = children(div160);
+      claim_component(hardskillssection0.$$.fragment, div160_nodes);
+      t279 = claim_space(div160_nodes);
+      claim_component(hardskillssection1.$$.fragment, div160_nodes);
+      t280 = claim_space(div160_nodes);
+      claim_component(hardskillssection2.$$.fragment, div160_nodes);
+      t281 = claim_space(div160_nodes);
+      claim_component(hardskillssection3.$$.fragment, div160_nodes);
+      t282 = claim_space(div160_nodes);
+      claim_component(hardskillssection4.$$.fragment, div160_nodes);
+      div160_nodes.forEach(detach);
       div161_nodes.forEach(detach);
       div162_nodes.forEach(detach);
-      t283 = claim_space(div178_nodes);
-      div165 = claim_element(div178_nodes, "DIV", { class: true });
-      var div165_nodes = children(div165);
-      p30 = claim_element(div165_nodes, "P", { class: true });
-      var p30_nodes = children(p30);
-      t284 = claim_text(p30_nodes, "Visualization");
-      p30_nodes.forEach(detach);
-      t285 = claim_space(div165_nodes);
-      div164 = claim_element(div165_nodes, "DIV", { class: true });
-      var div164_nodes = children(div164);
-      div163 = claim_element(div164_nodes, "DIV", { class: true });
-      children(div163).forEach(detach);
-      div164_nodes.forEach(detach);
-      div165_nodes.forEach(detach);
-      t286 = claim_space(div178_nodes);
-      div168 = claim_element(div178_nodes, "DIV", { class: true });
-      var div168_nodes = children(div168);
-      p31 = claim_element(div168_nodes, "P", { class: true });
-      var p31_nodes = children(p31);
-      t287 = claim_text(p31_nodes, "R");
-      p31_nodes.forEach(detach);
-      t288 = claim_space(div168_nodes);
-      div167 = claim_element(div168_nodes, "DIV", { class: true });
-      var div167_nodes = children(div167);
-      div166 = claim_element(div167_nodes, "DIV", { class: true });
-      children(div166).forEach(detach);
-      div167_nodes.forEach(detach);
-      div168_nodes.forEach(detach);
-      t289 = claim_space(div178_nodes);
-      div171 = claim_element(div178_nodes, "DIV", { class: true });
-      var div171_nodes = children(div171);
-      p32 = claim_element(div171_nodes, "P", { class: true });
-      var p32_nodes = children(p32);
-      t290 = claim_text(p32_nodes, "Statistics");
-      p32_nodes.forEach(detach);
-      t291 = claim_space(div171_nodes);
-      div170 = claim_element(div171_nodes, "DIV", { class: true });
-      var div170_nodes = children(div170);
-      div169 = claim_element(div170_nodes, "DIV", { class: true });
-      children(div169).forEach(detach);
-      div170_nodes.forEach(detach);
-      div171_nodes.forEach(detach);
-      t292 = claim_space(div178_nodes);
-      div174 = claim_element(div178_nodes, "DIV", { class: true });
-      var div174_nodes = children(div174);
-      p33 = claim_element(div174_nodes, "P", { class: true });
-      var p33_nodes = children(p33);
-      t293 = claim_text(p33_nodes, "Kafka");
-      p33_nodes.forEach(detach);
-      t294 = claim_space(div174_nodes);
-      div173 = claim_element(div174_nodes, "DIV", { class: true });
-      var div173_nodes = children(div173);
-      div172 = claim_element(div173_nodes, "DIV", { class: true });
-      children(div172).forEach(detach);
-      div173_nodes.forEach(detach);
-      div174_nodes.forEach(detach);
-      t295 = claim_space(div178_nodes);
-      div177 = claim_element(div178_nodes, "DIV", { class: true });
-      var div177_nodes = children(div177);
-      p34 = claim_element(div177_nodes, "P", { class: true });
-      var p34_nodes = children(p34);
-      t296 = claim_text(p34_nodes, "Matlab");
-      p34_nodes.forEach(detach);
-      t297 = claim_space(div177_nodes);
-      div176 = claim_element(div177_nodes, "DIV", { class: true });
-      var div176_nodes = children(div176);
-      div175 = claim_element(div176_nodes, "DIV", { class: true });
-      children(div175).forEach(detach);
-      div176_nodes.forEach(detach);
-      div177_nodes.forEach(detach);
-      div178_nodes.forEach(detach);
-      t298 = claim_space(div249_nodes);
-      div197 = claim_element(div249_nodes, "DIV", { class: true });
-      var div197_nodes = children(div197);
-      p35 = claim_element(div197_nodes, "P", { class: true });
-      var p35_nodes = children(p35);
-      t299 = claim_text(p35_nodes, "Databases");
-      p35_nodes.forEach(detach);
-      t300 = claim_space(div197_nodes);
-      div181 = claim_element(div197_nodes, "DIV", { class: true });
-      var div181_nodes = children(div181);
-      p36 = claim_element(div181_nodes, "P", { class: true });
-      var p36_nodes = children(p36);
-      t301 = claim_text(p36_nodes, "SQL");
-      p36_nodes.forEach(detach);
-      t302 = claim_space(div181_nodes);
-      div180 = claim_element(div181_nodes, "DIV", { class: true });
-      var div180_nodes = children(div180);
-      div179 = claim_element(div180_nodes, "DIV", { class: true });
-      children(div179).forEach(detach);
-      div180_nodes.forEach(detach);
-      div181_nodes.forEach(detach);
-      t303 = claim_space(div197_nodes);
-      div184 = claim_element(div197_nodes, "DIV", { class: true });
-      var div184_nodes = children(div184);
-      p37 = claim_element(div184_nodes, "P", { class: true });
-      var p37_nodes = children(p37);
-      t304 = claim_text(p37_nodes, "Postgres");
-      p37_nodes.forEach(detach);
-      t305 = claim_space(div184_nodes);
-      div183 = claim_element(div184_nodes, "DIV", { class: true });
-      var div183_nodes = children(div183);
-      div182 = claim_element(div183_nodes, "DIV", { class: true });
-      children(div182).forEach(detach);
-      div183_nodes.forEach(detach);
-      div184_nodes.forEach(detach);
-      t306 = claim_space(div197_nodes);
-      div187 = claim_element(div197_nodes, "DIV", { class: true });
-      var div187_nodes = children(div187);
-      p38 = claim_element(div187_nodes, "P", { class: true });
-      var p38_nodes = children(p38);
-      t307 = claim_text(p38_nodes, "Supabase");
-      p38_nodes.forEach(detach);
-      t308 = claim_space(div187_nodes);
-      div186 = claim_element(div187_nodes, "DIV", { class: true });
-      var div186_nodes = children(div186);
-      div185 = claim_element(div186_nodes, "DIV", { class: true });
-      children(div185).forEach(detach);
-      div186_nodes.forEach(detach);
-      div187_nodes.forEach(detach);
-      t309 = claim_space(div197_nodes);
-      div190 = claim_element(div197_nodes, "DIV", { class: true });
-      var div190_nodes = children(div190);
-      p39 = claim_element(div190_nodes, "P", { class: true });
-      var p39_nodes = children(p39);
-      t310 = claim_text(p39_nodes, "MongoDB");
-      p39_nodes.forEach(detach);
-      t311 = claim_space(div190_nodes);
-      div189 = claim_element(div190_nodes, "DIV", { class: true });
-      var div189_nodes = children(div189);
-      div188 = claim_element(div189_nodes, "DIV", { class: true });
-      children(div188).forEach(detach);
-      div189_nodes.forEach(detach);
-      div190_nodes.forEach(detach);
-      t312 = claim_space(div197_nodes);
-      div193 = claim_element(div197_nodes, "DIV", { class: true });
-      var div193_nodes = children(div193);
-      p40 = claim_element(div193_nodes, "P", { class: true });
-      var p40_nodes = children(p40);
-      t313 = claim_text(p40_nodes, "Elasticsearch");
-      p40_nodes.forEach(detach);
-      t314 = claim_space(div193_nodes);
-      div192 = claim_element(div193_nodes, "DIV", { class: true });
-      var div192_nodes = children(div192);
-      div191 = claim_element(div192_nodes, "DIV", { class: true });
-      children(div191).forEach(detach);
-      div192_nodes.forEach(detach);
-      div193_nodes.forEach(detach);
-      t315 = claim_space(div197_nodes);
-      div196 = claim_element(div197_nodes, "DIV", { class: true });
-      var div196_nodes = children(div196);
-      p41 = claim_element(div196_nodes, "P", { class: true });
-      var p41_nodes = children(p41);
-      t316 = claim_text(p41_nodes, "Redis");
-      p41_nodes.forEach(detach);
-      t317 = claim_space(div196_nodes);
-      div195 = claim_element(div196_nodes, "DIV", { class: true });
-      var div195_nodes = children(div195);
-      div194 = claim_element(div195_nodes, "DIV", { class: true });
-      children(div194).forEach(detach);
-      div195_nodes.forEach(detach);
-      div196_nodes.forEach(detach);
-      div197_nodes.forEach(detach);
-      t318 = claim_space(div249_nodes);
-      div213 = claim_element(div249_nodes, "DIV", { class: true });
-      var div213_nodes = children(div213);
-      p42 = claim_element(div213_nodes, "P", { class: true });
-      var p42_nodes = children(p42);
-      t319 = claim_text(p42_nodes, "DevOps");
-      p42_nodes.forEach(detach);
-      t320 = claim_space(div213_nodes);
-      div200 = claim_element(div213_nodes, "DIV", { class: true });
-      var div200_nodes = children(div200);
-      p43 = claim_element(div200_nodes, "P", { class: true });
-      var p43_nodes = children(p43);
-      t321 = claim_text(p43_nodes, "Docker");
-      p43_nodes.forEach(detach);
-      t322 = claim_space(div200_nodes);
-      div199 = claim_element(div200_nodes, "DIV", { class: true });
-      var div199_nodes = children(div199);
-      div198 = claim_element(div199_nodes, "DIV", { class: true });
-      children(div198).forEach(detach);
-      div199_nodes.forEach(detach);
-      div200_nodes.forEach(detach);
-      t323 = claim_space(div213_nodes);
-      div203 = claim_element(div213_nodes, "DIV", { class: true });
-      var div203_nodes = children(div203);
-      p44 = claim_element(div203_nodes, "P", { class: true });
-      var p44_nodes = children(p44);
-      t324 = claim_text(p44_nodes, "VS Code");
-      p44_nodes.forEach(detach);
-      t325 = claim_space(div203_nodes);
-      div202 = claim_element(div203_nodes, "DIV", { class: true });
-      var div202_nodes = children(div202);
-      div201 = claim_element(div202_nodes, "DIV", { class: true });
-      children(div201).forEach(detach);
-      div202_nodes.forEach(detach);
-      div203_nodes.forEach(detach);
-      t326 = claim_space(div213_nodes);
-      div206 = claim_element(div213_nodes, "DIV", { class: true });
-      var div206_nodes = children(div206);
-      p45 = claim_element(div206_nodes, "P", { class: true });
-      var p45_nodes = children(p45);
-      t327 = claim_text(p45_nodes, "Git");
-      p45_nodes.forEach(detach);
-      t328 = claim_space(div206_nodes);
-      div205 = claim_element(div206_nodes, "DIV", { class: true });
-      var div205_nodes = children(div205);
-      div204 = claim_element(div205_nodes, "DIV", { class: true });
-      children(div204).forEach(detach);
-      div205_nodes.forEach(detach);
-      div206_nodes.forEach(detach);
-      t329 = claim_space(div213_nodes);
-      div209 = claim_element(div213_nodes, "DIV", { class: true });
-      var div209_nodes = children(div209);
-      p46 = claim_element(div209_nodes, "P", { class: true });
-      var p46_nodes = children(p46);
-      t330 = claim_text(p46_nodes, "Jupyter");
-      p46_nodes.forEach(detach);
-      t331 = claim_space(div209_nodes);
-      div208 = claim_element(div209_nodes, "DIV", { class: true });
-      var div208_nodes = children(div208);
-      div207 = claim_element(div208_nodes, "DIV", { class: true });
-      children(div207).forEach(detach);
-      div208_nodes.forEach(detach);
-      div209_nodes.forEach(detach);
-      t332 = claim_space(div213_nodes);
-      div212 = claim_element(div213_nodes, "DIV", { class: true });
-      var div212_nodes = children(div212);
-      p47 = claim_element(div212_nodes, "P", { class: true });
-      var p47_nodes = children(p47);
-      t333 = claim_text(p47_nodes, "Jira");
-      p47_nodes.forEach(detach);
-      t334 = claim_space(div212_nodes);
-      div211 = claim_element(div212_nodes, "DIV", { class: true });
-      var div211_nodes = children(div211);
-      div210 = claim_element(div211_nodes, "DIV", { class: true });
-      children(div210).forEach(detach);
-      div211_nodes.forEach(detach);
-      div212_nodes.forEach(detach);
-      div213_nodes.forEach(detach);
-      t335 = claim_space(div249_nodes);
-      div232 = claim_element(div249_nodes, "DIV", { class: true });
-      var div232_nodes = children(div232);
-      p48 = claim_element(div232_nodes, "P", { class: true });
-      var p48_nodes = children(p48);
-      t336 = claim_text(p48_nodes, "Backend");
-      p48_nodes.forEach(detach);
-      t337 = claim_space(div232_nodes);
-      div216 = claim_element(div232_nodes, "DIV", { class: true });
-      var div216_nodes = children(div216);
-      p49 = claim_element(div216_nodes, "P", { class: true });
-      var p49_nodes = children(p49);
-      t338 = claim_text(p49_nodes, "Python");
-      p49_nodes.forEach(detach);
-      t339 = claim_space(div216_nodes);
-      div215 = claim_element(div216_nodes, "DIV", { class: true });
-      var div215_nodes = children(div215);
-      div214 = claim_element(div215_nodes, "DIV", { class: true });
-      children(div214).forEach(detach);
-      div215_nodes.forEach(detach);
-      div216_nodes.forEach(detach);
-      t340 = claim_space(div232_nodes);
-      div219 = claim_element(div232_nodes, "DIV", { class: true });
-      var div219_nodes = children(div219);
-      p50 = claim_element(div219_nodes, "P", { class: true });
-      var p50_nodes = children(p50);
-      t341 = claim_text(p50_nodes, "REST APIs");
-      p50_nodes.forEach(detach);
-      t342 = claim_space(div219_nodes);
-      div218 = claim_element(div219_nodes, "DIV", { class: true });
-      var div218_nodes = children(div218);
-      div217 = claim_element(div218_nodes, "DIV", { class: true });
-      children(div217).forEach(detach);
-      div218_nodes.forEach(detach);
-      div219_nodes.forEach(detach);
-      t343 = claim_space(div232_nodes);
-      div222 = claim_element(div232_nodes, "DIV", { class: true });
-      var div222_nodes = children(div222);
-      p51 = claim_element(div222_nodes, "P", { class: true });
-      var p51_nodes = children(p51);
-      t344 = claim_text(p51_nodes, "Java");
-      p51_nodes.forEach(detach);
-      t345 = claim_space(div222_nodes);
-      div221 = claim_element(div222_nodes, "DIV", { class: true });
-      var div221_nodes = children(div221);
-      div220 = claim_element(div221_nodes, "DIV", { class: true });
-      children(div220).forEach(detach);
-      div221_nodes.forEach(detach);
-      div222_nodes.forEach(detach);
-      t346 = claim_space(div232_nodes);
-      div225 = claim_element(div232_nodes, "DIV", { class: true });
-      var div225_nodes = children(div225);
-      p52 = claim_element(div225_nodes, "P", { class: true });
-      var p52_nodes = children(p52);
-      t347 = claim_text(p52_nodes, "bash");
-      p52_nodes.forEach(detach);
-      t348 = claim_space(div225_nodes);
-      div224 = claim_element(div225_nodes, "DIV", { class: true });
-      var div224_nodes = children(div224);
-      div223 = claim_element(div224_nodes, "DIV", { class: true });
-      children(div223).forEach(detach);
-      div224_nodes.forEach(detach);
-      div225_nodes.forEach(detach);
-      t349 = claim_space(div232_nodes);
-      div228 = claim_element(div232_nodes, "DIV", { class: true });
-      var div228_nodes = children(div228);
-      p53 = claim_element(div228_nodes, "P", { class: true });
-      var p53_nodes = children(p53);
-      t350 = claim_text(p53_nodes, "C#/C++");
-      p53_nodes.forEach(detach);
-      t351 = claim_space(div228_nodes);
-      div227 = claim_element(div228_nodes, "DIV", { class: true });
-      var div227_nodes = children(div227);
-      div226 = claim_element(div227_nodes, "DIV", { class: true });
-      children(div226).forEach(detach);
-      div227_nodes.forEach(detach);
-      div228_nodes.forEach(detach);
-      t352 = claim_space(div232_nodes);
-      div231 = claim_element(div232_nodes, "DIV", { class: true });
-      var div231_nodes = children(div231);
-      p54 = claim_element(div231_nodes, "P", { class: true });
-      var p54_nodes = children(p54);
-      t353 = claim_text(p54_nodes, "PHP");
-      p54_nodes.forEach(detach);
-      t354 = claim_space(div231_nodes);
-      div230 = claim_element(div231_nodes, "DIV", { class: true });
-      var div230_nodes = children(div230);
-      div229 = claim_element(div230_nodes, "DIV", { class: true });
-      children(div229).forEach(detach);
-      div230_nodes.forEach(detach);
-      div231_nodes.forEach(detach);
-      div232_nodes.forEach(detach);
-      t355 = claim_space(div249_nodes);
-      div248 = claim_element(div249_nodes, "DIV", { class: true });
-      var div248_nodes = children(div248);
-      p55 = claim_element(div248_nodes, "P", { class: true });
-      var p55_nodes = children(p55);
-      t356 = claim_text(p55_nodes, "Frontend");
-      p55_nodes.forEach(detach);
-      t357 = claim_space(div248_nodes);
-      div235 = claim_element(div248_nodes, "DIV", { class: true });
-      var div235_nodes = children(div235);
-      p56 = claim_element(div235_nodes, "P", { class: true });
-      var p56_nodes = children(p56);
-      t358 = claim_text(p56_nodes, "Svelte");
-      p56_nodes.forEach(detach);
-      t359 = claim_space(div235_nodes);
-      div234 = claim_element(div235_nodes, "DIV", { class: true });
-      var div234_nodes = children(div234);
-      div233 = claim_element(div234_nodes, "DIV", { class: true });
-      children(div233).forEach(detach);
-      div234_nodes.forEach(detach);
-      div235_nodes.forEach(detach);
-      t360 = claim_space(div248_nodes);
-      div238 = claim_element(div248_nodes, "DIV", { class: true });
-      var div238_nodes = children(div238);
-      p57 = claim_element(div238_nodes, "P", { class: true });
-      var p57_nodes = children(p57);
-      t361 = claim_text(p57_nodes, "HTML/CSS");
-      p57_nodes.forEach(detach);
-      t362 = claim_space(div238_nodes);
-      div237 = claim_element(div238_nodes, "DIV", { class: true });
-      var div237_nodes = children(div237);
-      div236 = claim_element(div237_nodes, "DIV", { class: true });
-      children(div236).forEach(detach);
-      div237_nodes.forEach(detach);
-      div238_nodes.forEach(detach);
-      t363 = claim_space(div248_nodes);
-      div241 = claim_element(div248_nodes, "DIV", { class: true });
-      var div241_nodes = children(div241);
-      p58 = claim_element(div241_nodes, "P", { class: true });
-      var p58_nodes = children(p58);
-      t364 = claim_text(p58_nodes, "JavaScript");
-      p58_nodes.forEach(detach);
-      t365 = claim_space(div241_nodes);
-      div240 = claim_element(div241_nodes, "DIV", { class: true });
-      var div240_nodes = children(div240);
-      div239 = claim_element(div240_nodes, "DIV", { class: true });
-      children(div239).forEach(detach);
-      div240_nodes.forEach(detach);
-      div241_nodes.forEach(detach);
-      t366 = claim_space(div248_nodes);
-      div244 = claim_element(div248_nodes, "DIV", { class: true });
-      var div244_nodes = children(div244);
-      p59 = claim_element(div244_nodes, "P", { class: true });
-      var p59_nodes = children(p59);
-      t367 = claim_text(p59_nodes, "React");
-      p59_nodes.forEach(detach);
-      t368 = claim_space(div244_nodes);
-      div243 = claim_element(div244_nodes, "DIV", { class: true });
-      var div243_nodes = children(div243);
-      div242 = claim_element(div243_nodes, "DIV", { class: true });
-      children(div242).forEach(detach);
-      div243_nodes.forEach(detach);
-      div244_nodes.forEach(detach);
-      t369 = claim_space(div248_nodes);
-      div247 = claim_element(div248_nodes, "DIV", { class: true });
-      var div247_nodes = children(div247);
-      p60 = claim_element(div247_nodes, "P", { class: true });
-      var p60_nodes = children(p60);
-      t370 = claim_text(p60_nodes, "UI Design");
-      p60_nodes.forEach(detach);
-      t371 = claim_space(div247_nodes);
-      div246 = claim_element(div247_nodes, "DIV", { class: true });
-      var div246_nodes = children(div246);
-      div245 = claim_element(div246_nodes, "DIV", { class: true });
-      children(div245).forEach(detach);
-      div246_nodes.forEach(detach);
-      div247_nodes.forEach(detach);
-      div248_nodes.forEach(detach);
-      div249_nodes.forEach(detach);
-      div250_nodes.forEach(detach);
-      div251_nodes.forEach(detach);
-      div252_nodes.forEach(detach);
+      div163_nodes.forEach(detach);
       this.h();
     },
     h() {
@@ -3401,16 +2804,16 @@ function create_fragment(ctx) {
       attr(img12, "class", "w-4 h-4");
       attr(div53, "class", "flex items-center mr-2 hidden");
       attr(div54, "class", "flex items-center text-sm font-semibold");
-      attr(div55, "class", "ml-4 mt-2 text-xs");
+      attr(div55, "class", "ml-2 lg:ml-4 mt-2 text-xs");
       attr(div56, "class", "flex flex-col");
       if (!src_url_equal(img13.src, img13_src_value = "feathericons/video.svg"))
         attr(img13, "src", img13_src_value);
       attr(img13, "class", "w-4 h-4");
       attr(div57, "class", "flex items-center mr-2 hidden");
       attr(div58, "class", "flex items-center text-sm font-semibold");
-      attr(div59, "class", "ml-4 mt-2 text-xs");
+      attr(div59, "class", "ml-2 lg:ml-4 mt-2 text-xs");
       attr(div60, "class", "flex flex-col");
-      attr(div61, "class", "grid grid-cols-2 gap-4 -mt-2");
+      attr(div61, "class", "grid grid-cols-2 gap-2 -mt-2");
       attr(div62, "class", "flex flex-col gap-y-6");
       if (!src_url_equal(img14.src, img14_src_value = "feathericons/heart.svg"))
         attr(img14, "src", img14_src_value);
@@ -3424,14 +2827,14 @@ function create_fragment(ctx) {
       attr(img15, "class", "w-4 h-4");
       attr(div67, "class", "flex items-center mr-2 hidden");
       attr(div68, "class", "flex items-center text-sm font-semibold");
-      attr(div69, "class", "ml-4 mt-2 text-xs");
+      attr(div69, "class", "ml-2 lg:ml-4 mt-2 text-xs");
       attr(div70, "class", "flex flex-col");
       if (!src_url_equal(img16.src, img16_src_value = "feathericons/video.svg"))
         attr(img16, "src", img16_src_value);
       attr(img16, "class", "w-4 h-4");
       attr(div71, "class", "flex items-center mr-2 hidden");
       attr(div72, "class", "flex items-center text-sm font-semibold");
-      attr(div73, "class", "ml-4 mt-2 text-xs");
+      attr(div73, "class", "ml-2 lg:ml-4 mt-2 text-xs");
       attr(div74, "class", "flex flex-col");
       if (!src_url_equal(img17.src, img17_src_value = "feathericons/activity.svg"))
         attr(img17, "src", img17_src_value);
@@ -3445,9 +2848,9 @@ function create_fragment(ctx) {
       attr(img18, "class", "w-4 h-4");
       attr(div79, "class", "flex items-center mr-2 hidden -rotate-90");
       attr(div80, "class", "flex items-center text-sm font-semibold");
-      attr(div81, "class", "ml-4 mt-2 text-xs");
+      attr(div81, "class", "ml-2 lg:ml-4 mt-2 text-xs");
       attr(div82, "class", "flex flex-col");
-      attr(div83, "class", "grid grid-cols-2 gap-4 -mt-2");
+      attr(div83, "class", "grid grid-cols-2 gap-2 -mt-2");
       if (!src_url_equal(img19.src, img19_src_value = "feathericons/coffee.svg"))
         attr(img19, "src", img19_src_value);
       attr(img19, "class", "w-4 h-4 mr-2");
@@ -3456,12 +2859,12 @@ function create_fragment(ctx) {
       attr(div86, "class", "w-full bg-gray-300 h-0.5 top-3 mt-0.5 z-20 rounded-full mr-4");
       attr(div87, "class", "w-full flex font-bold items-center");
       attr(div88, "class", "flex items-center text-sm font-semibold");
-      attr(div89, "class", "ml-4 mt-2 text-xs");
+      attr(div89, "class", "ml-2 lg:ml-4 mt-2 text-xs");
       attr(div90, "class", "flex flex-col");
       attr(div91, "class", "flex items-center text-sm font-semibold");
-      attr(div92, "class", "ml-4 mt-2 text-xs");
+      attr(div92, "class", "ml-2 lg:ml-4 mt-2 text-xs");
       attr(div93, "class", "flex flex-col");
-      attr(div94, "class", "grid grid-cols-2 gap-4 -mt-2");
+      attr(div94, "class", "grid grid-cols-2 gap-2 -mt-2");
       attr(div95, "class", "flex flex-col px-4 gap-y-6");
       if (!src_url_equal(img20.src, img20_src_value = "feathericons/star.svg"))
         attr(img20, "src", img20_src_value);
@@ -3620,139 +3023,18 @@ function create_fragment(ctx) {
       attr(div157, "class", "flex flex-none items-center");
       attr(div158, "class", "w-full bg-gray-300 h-0.5 top-3 mt-0.5 z-20 rounded-full mr-4");
       attr(div159, "class", "w-full flex font-bold items-center");
-      attr(p28, "class", "mb-2 text-sm font-bold");
-      attr(p29, "class", "leading-6 h-6 w-1/2");
-      attr(div160, "class", "w-5/6 bg-[#232ED1] bg-opacity-50 h-full");
-      attr(div161, "class", "rounded-sm overflow-hidden ml-4 w-1/4 bg-gray-100 h-[6px] mx-4");
-      attr(div162, "class", "text-xs flex flex-row items-center h-6");
-      attr(p30, "class", "leading-6 h-6 w-1/2");
-      attr(div163, "class", "w-2/3 bg-[#232ED1] bg-opacity-50 h-full");
-      attr(div164, "class", "rounded-sm overflow-hidden ml-4 w-1/4 bg-gray-100 h-[6px] mx-4");
-      attr(div165, "class", "text-xs flex flex-row items-center h-6");
-      attr(p31, "class", "leading-6 h-6 w-1/2");
-      attr(div166, "class", "w-1/2 bg-[#232ED1] bg-opacity-50 h-full");
-      attr(div167, "class", "rounded-sm overflow-hidden ml-4 w-1/4 bg-gray-100 h-[6px] mx-4");
-      attr(div168, "class", "text-xs flex flex-row items-center h-6");
-      attr(p32, "class", "leading-6 h-6 w-1/2");
-      attr(div169, "class", "w-2/5 bg-[#232ED1] bg-opacity-50 h-full");
-      attr(div170, "class", "rounded-sm overflow-hidden ml-4 w-1/4 bg-gray-100 h-[6px] mx-4");
-      attr(div171, "class", "text-xs flex flex-row items-center h-6");
-      attr(p33, "class", "leading-6 h-6 w-1/2");
-      attr(div172, "class", "w-1/4 bg-[#232ED1] bg-opacity-50 h-full");
-      attr(div173, "class", "rounded-sm overflow-hidden ml-4 w-1/4 bg-gray-100 h-[6px] mx-4");
-      attr(div174, "class", "text-xs flex flex-row items-center h-6");
-      attr(p34, "class", "leading-6 h-6 w-1/2");
-      attr(div175, "class", "w-1/5 bg-[#232ED1] bg-opacity-50 h-full");
-      attr(div176, "class", "rounded-sm overflow-hidden ml-4 w-1/4 bg-gray-100 h-[6px] mx-4");
-      attr(div177, "class", "text-xs flex flex-row items-center h-6");
-      attr(div178, "class", "flex flex-col");
-      attr(p35, "class", "mb-2 text-sm font-bold");
-      attr(p36, "class", "leading-6 h-6 w-1/2");
-      attr(div179, "class", "w-4/5 bg-[#FFB140] bg-opacity-50 h-full");
-      attr(div180, "class", "rounded-sm overflow-hidden ml-4 w-1/4 bg-gray-100 h-[6px] mx-4");
-      attr(div181, "class", "text-xs flex flex-row items-center h-6");
-      attr(p37, "class", "leading-6 h-6 w-1/2");
-      attr(div182, "class", "w-2/3 bg-[#FFB140] bg-opacity-50 h-full");
-      attr(div183, "class", "rounded-sm overflow-hidden ml-4 w-1/4 bg-gray-100 h-[6px] mx-4");
-      attr(div184, "class", "text-xs flex flex-row items-center h-6");
-      attr(p38, "class", "leading-6 h-6 w-1/2");
-      attr(div185, "class", "w-2/3 bg-[#FFB140] bg-opacity-50 h-full");
-      attr(div186, "class", "rounded-sm overflow-hidden ml-4 w-1/4 bg-gray-100 h-[6px] mx-4");
-      attr(div187, "class", "text-xs flex flex-row items-center h-6");
-      attr(p39, "class", "leading-6 h-6 w-1/2");
-      attr(div188, "class", "w-3/5 bg-[#FFB140] bg-opacity-50 h-full");
-      attr(div189, "class", "rounded-sm overflow-hidden ml-4 w-1/4 bg-gray-100 h-[6px] mx-4");
-      attr(div190, "class", "text-xs flex flex-row items-center h-6");
-      attr(p40, "class", "leading-6 h-6 w-1/2");
-      attr(div191, "class", "w-2/5 bg-[#FFB140] bg-opacity-50 h-full");
-      attr(div192, "class", "rounded-sm overflow-hidden ml-4 w-1/4 bg-gray-100 h-[6px] mx-4");
-      attr(div193, "class", "text-xs flex flex-row items-center h-6");
-      attr(p41, "class", "leading-6 h-6 w-1/2");
-      attr(div194, "class", "w-1/5 bg-[#FFB140] bg-opacity-50 h-full");
-      attr(div195, "class", "rounded-sm overflow-hidden ml-4 w-1/4 bg-gray-100 h-[6px] mx-4");
-      attr(div196, "class", "text-xs flex flex-row items-center h-6");
-      attr(div197, "class", "flex flex-col");
-      attr(p42, "class", "mb-2 text-sm font-bold");
-      attr(p43, "class", "leading-6 h-6 w-1/2");
-      attr(div198, "class", "w-2/3 bg-[#C08EF5] bg-opacity-50 h-full");
-      attr(div199, "class", "rounded-sm overflow-hidden ml-4 w-1/4 bg-gray-100 h-[6px] mx-4");
-      attr(div200, "class", "text-xs flex flex-row items-center h-6");
-      attr(p44, "class", "leading-6 h-6 w-1/2");
-      attr(div201, "class", "w-3/5 bg-[#C08EF5] bg-opacity-50 h-full");
-      attr(div202, "class", "rounded-sm overflow-hidden ml-4 w-1/4 bg-gray-100 h-[6px] mx-4");
-      attr(div203, "class", "text-xs flex flex-row items-center h-6");
-      attr(p45, "class", "leading-6 h-6 w-1/2");
-      attr(div204, "class", "w-1/2 bg-[#C08EF5] bg-opacity-50 h-full");
-      attr(div205, "class", "rounded-sm overflow-hidden ml-4 w-1/4 bg-gray-100 h-[6px] mx-4");
-      attr(div206, "class", "text-xs flex flex-row items-center h-6");
-      attr(p46, "class", "leading-6 h-6 w-1/2");
-      attr(div207, "class", "w-2/5 bg-[#C08EF5] bg-opacity-50 h-full");
-      attr(div208, "class", "rounded-sm overflow-hidden ml-4 w-1/4 bg-gray-100 h-[6px] mx-4");
-      attr(div209, "class", "text-xs flex flex-row items-center h-6");
-      attr(p47, "class", "leading-6 h-6 w-1/2");
-      attr(div210, "class", "w-2/5 bg-[#C08EF5] bg-opacity-50 h-full");
-      attr(div211, "class", "rounded-sm overflow-hidden ml-4 w-1/4 bg-gray-100 h-[6px] mx-4");
-      attr(div212, "class", "text-xs flex flex-row items-center h-6");
-      attr(div213, "class", "flex flex-col");
-      attr(p48, "class", "mb-2 text-sm font-bold");
-      attr(p49, "class", "leading-6 h-6 w-1/2");
-      attr(div214, "class", "w-5/6 bg-[#FF7477] bg-opacity-50 h-full");
-      attr(div215, "class", "rounded-sm overflow-hidden ml-4 w-1/4 bg-gray-100 h-[6px] mx-4");
-      attr(div216, "class", "text-xs flex flex-row items-center h-6");
-      attr(p50, "class", "leading-6 h-6 w-1/2");
-      attr(div217, "class", "w-4/5 bg-[#FF7477] bg-opacity-50 h-full");
-      attr(div218, "class", "rounded-sm overflow-hidden ml-4 w-1/4 bg-gray-100 h-[6px] mx-4");
-      attr(div219, "class", "text-xs flex flex-row items-center h-6");
-      attr(p51, "class", "leading-6 h-6 w-1/2");
-      attr(div220, "class", "w-2/5 bg-[#FF7477] bg-opacity-50 h-full");
-      attr(div221, "class", "rounded-sm overflow-hidden ml-4 w-1/4 bg-gray-100 h-[6px] mx-4");
-      attr(div222, "class", "text-xs flex flex-row items-center h-6");
-      attr(p52, "class", "leading-6 h-6 w-1/2");
-      attr(div223, "class", "w-2/5 bg-[#FF7477] bg-opacity-50 h-full");
-      attr(div224, "class", "rounded-sm overflow-hidden ml-4 w-1/4 bg-gray-100 h-[6px] mx-4");
-      attr(div225, "class", "text-xs flex flex-row items-center h-6");
-      attr(p53, "class", "leading-6 h-6 w-1/2");
-      attr(div226, "class", "w-1/4 bg-[#FF7477] bg-opacity-50 h-full");
-      attr(div227, "class", "rounded-sm overflow-hidden ml-4 w-1/4 bg-gray-100 h-[6px] mx-4");
-      attr(div228, "class", "text-xs flex flex-row items-center h-6");
-      attr(p54, "class", "leading-6 h-6 w-1/2");
-      attr(div229, "class", "w-1/4 bg-[#FF7477] bg-opacity-50 h-full");
-      attr(div230, "class", "rounded-sm overflow-hidden ml-4 w-1/4 bg-gray-100 h-[6px] mx-4");
-      attr(div231, "class", "text-xs flex flex-row items-center h-6");
-      attr(div232, "class", "flex flex-col");
-      attr(p55, "class", "mb-2 text-sm font-bold");
-      attr(p56, "class", "leading-6 h-6 w-1/2");
-      attr(div233, "class", "w-4/5 bg-[#A5CC6B] bg-opacity-50 h-full");
-      attr(div234, "class", "rounded-sm overflow-hidden ml-4 w-1/4 bg-gray-100 h-[6px] mx-4");
-      attr(div235, "class", "text-xs flex flex-row items-center h-6");
-      attr(p57, "class", "leading-6 h-6 w-1/2");
-      attr(div236, "class", "w-4/5 bg-[#A5CC6B] bg-opacity-50 h-full");
-      attr(div237, "class", "rounded-sm overflow-hidden ml-4 w-1/4 bg-gray-100 h-[6px] mx-4");
-      attr(div238, "class", "text-xs flex flex-row items-center h-6");
-      attr(p58, "class", "leading-6 h-6 w-1/2");
-      attr(div239, "class", "w-2/3 bg-[#A5CC6B] bg-opacity-50 h-full");
-      attr(div240, "class", "rounded-sm overflow-hidden ml-4 w-1/4 bg-gray-100 h-[6px] mx-4");
-      attr(div241, "class", "text-xs flex flex-row items-center h-6");
-      attr(p59, "class", "leading-6 h-6 w-1/2");
-      attr(div242, "class", "w-1/2 bg-[#A5CC6B] bg-opacity-50 h-full");
-      attr(div243, "class", "rounded-sm overflow-hidden ml-4 w-1/4 bg-gray-100 h-[6px] mx-4");
-      attr(div244, "class", "text-xs flex flex-row items-center h-6");
-      attr(p60, "class", "leading-6 h-6 w-1/2");
-      attr(div245, "class", "w-2/5 bg-[#A5CC6B] bg-opacity-50 h-full");
-      attr(div246, "class", "rounded-sm overflow-hidden ml-4 w-1/4 bg-gray-100 h-[6px] mx-4");
-      attr(div247, "class", "text-xs flex flex-row items-center h-6");
-      attr(div248, "class", "flex flex-col");
-      attr(div249, "class", "grid grid-cols-2 lg:grid-cols-5 gap-4");
-      attr(div250, "class", "flex flex-col gap-y-4 p-4 mt-2");
-      attr(div251, "class", "overflow-hidden h-full");
-      attr(div252, "class", "relative w-[min(794px, 80vw)]");
-      set_style(div252, "font-family", "'Lato', sans-serif");
-      set_style(div252, "color", "#141414");
+      attr(div160, "class", "grid grid-cols-3 lg:grid-cols-5 gap-4");
+      attr(div161, "class", "flex flex-col gap-y-4 p-4 mt-2");
+      attr(div162, "class", "overflow-hidden h-full");
+      attr(div163, "class", "relative");
+      set_style(div163, "font-family", "'Lato', sans-serif");
+      set_style(div163, "color", "#141414");
+      set_style(div163, "width", "min(794px, 100vw)");
     },
     m(target, anchor) {
-      insert_hydration(target, div252, anchor);
-      append_hydration(div252, div251);
-      append_hydration(div251, div13);
+      insert_hydration(target, div163, anchor);
+      append_hydration(div163, div162);
+      append_hydration(div162, div13);
       append_hydration(div13, div12);
       append_hydration(div12, img0);
       append_hydration(div12, t0);
@@ -3798,8 +3080,8 @@ function create_fragment(ctx) {
       append_hydration(a2, img5);
       append_hydration(a2, span4);
       append_hydration(span4, t17);
-      append_hydration(div251, t18);
-      append_hydration(div251, div14);
+      append_hydration(div162, t18);
+      append_hydration(div162, div14);
       append_hydration(div14, li0);
       append_hydration(li0, span5);
       append_hydration(span5, t19);
@@ -3810,8 +3092,8 @@ function create_fragment(ctx) {
       append_hydration(li1, span6);
       append_hydration(span6, t23);
       append_hydration(li1, t24);
-      append_hydration(div251, t25);
-      append_hydration(div251, div155);
+      append_hydration(div162, t25);
+      append_hydration(div162, div155);
       append_hydration(div155, div95);
       append_hydration(div95, div37);
       append_hydration(div37, div18);
@@ -4338,9 +3620,9 @@ function create_fragment(ctx) {
       append_hydration(li44, span37);
       append_hydration(span37, t272);
       append_hydration(li44, t273);
-      append_hydration(div251, t274);
-      append_hydration(div251, div250);
-      append_hydration(div250, div159);
+      append_hydration(div162, t274);
+      append_hydration(div162, div161);
+      append_hydration(div161, div159);
       append_hydration(div159, div157);
       append_hydration(div157, img29);
       append_hydration(div157, t275);
@@ -4348,230 +3630,46 @@ function create_fragment(ctx) {
       append_hydration(div156, t276);
       append_hydration(div159, t277);
       append_hydration(div159, div158);
-      append_hydration(div250, t278);
-      append_hydration(div250, div249);
-      append_hydration(div249, div178);
-      append_hydration(div178, p28);
-      append_hydration(p28, t279);
-      append_hydration(div178, t280);
-      append_hydration(div178, div162);
-      append_hydration(div162, p29);
-      append_hydration(p29, t281);
-      append_hydration(div162, t282);
-      append_hydration(div162, div161);
+      append_hydration(div161, t278);
       append_hydration(div161, div160);
-      append_hydration(div178, t283);
-      append_hydration(div178, div165);
-      append_hydration(div165, p30);
-      append_hydration(p30, t284);
-      append_hydration(div165, t285);
-      append_hydration(div165, div164);
-      append_hydration(div164, div163);
-      append_hydration(div178, t286);
-      append_hydration(div178, div168);
-      append_hydration(div168, p31);
-      append_hydration(p31, t287);
-      append_hydration(div168, t288);
-      append_hydration(div168, div167);
-      append_hydration(div167, div166);
-      append_hydration(div178, t289);
-      append_hydration(div178, div171);
-      append_hydration(div171, p32);
-      append_hydration(p32, t290);
-      append_hydration(div171, t291);
-      append_hydration(div171, div170);
-      append_hydration(div170, div169);
-      append_hydration(div178, t292);
-      append_hydration(div178, div174);
-      append_hydration(div174, p33);
-      append_hydration(p33, t293);
-      append_hydration(div174, t294);
-      append_hydration(div174, div173);
-      append_hydration(div173, div172);
-      append_hydration(div178, t295);
-      append_hydration(div178, div177);
-      append_hydration(div177, p34);
-      append_hydration(p34, t296);
-      append_hydration(div177, t297);
-      append_hydration(div177, div176);
-      append_hydration(div176, div175);
-      append_hydration(div249, t298);
-      append_hydration(div249, div197);
-      append_hydration(div197, p35);
-      append_hydration(p35, t299);
-      append_hydration(div197, t300);
-      append_hydration(div197, div181);
-      append_hydration(div181, p36);
-      append_hydration(p36, t301);
-      append_hydration(div181, t302);
-      append_hydration(div181, div180);
-      append_hydration(div180, div179);
-      append_hydration(div197, t303);
-      append_hydration(div197, div184);
-      append_hydration(div184, p37);
-      append_hydration(p37, t304);
-      append_hydration(div184, t305);
-      append_hydration(div184, div183);
-      append_hydration(div183, div182);
-      append_hydration(div197, t306);
-      append_hydration(div197, div187);
-      append_hydration(div187, p38);
-      append_hydration(p38, t307);
-      append_hydration(div187, t308);
-      append_hydration(div187, div186);
-      append_hydration(div186, div185);
-      append_hydration(div197, t309);
-      append_hydration(div197, div190);
-      append_hydration(div190, p39);
-      append_hydration(p39, t310);
-      append_hydration(div190, t311);
-      append_hydration(div190, div189);
-      append_hydration(div189, div188);
-      append_hydration(div197, t312);
-      append_hydration(div197, div193);
-      append_hydration(div193, p40);
-      append_hydration(p40, t313);
-      append_hydration(div193, t314);
-      append_hydration(div193, div192);
-      append_hydration(div192, div191);
-      append_hydration(div197, t315);
-      append_hydration(div197, div196);
-      append_hydration(div196, p41);
-      append_hydration(p41, t316);
-      append_hydration(div196, t317);
-      append_hydration(div196, div195);
-      append_hydration(div195, div194);
-      append_hydration(div249, t318);
-      append_hydration(div249, div213);
-      append_hydration(div213, p42);
-      append_hydration(p42, t319);
-      append_hydration(div213, t320);
-      append_hydration(div213, div200);
-      append_hydration(div200, p43);
-      append_hydration(p43, t321);
-      append_hydration(div200, t322);
-      append_hydration(div200, div199);
-      append_hydration(div199, div198);
-      append_hydration(div213, t323);
-      append_hydration(div213, div203);
-      append_hydration(div203, p44);
-      append_hydration(p44, t324);
-      append_hydration(div203, t325);
-      append_hydration(div203, div202);
-      append_hydration(div202, div201);
-      append_hydration(div213, t326);
-      append_hydration(div213, div206);
-      append_hydration(div206, p45);
-      append_hydration(p45, t327);
-      append_hydration(div206, t328);
-      append_hydration(div206, div205);
-      append_hydration(div205, div204);
-      append_hydration(div213, t329);
-      append_hydration(div213, div209);
-      append_hydration(div209, p46);
-      append_hydration(p46, t330);
-      append_hydration(div209, t331);
-      append_hydration(div209, div208);
-      append_hydration(div208, div207);
-      append_hydration(div213, t332);
-      append_hydration(div213, div212);
-      append_hydration(div212, p47);
-      append_hydration(p47, t333);
-      append_hydration(div212, t334);
-      append_hydration(div212, div211);
-      append_hydration(div211, div210);
-      append_hydration(div249, t335);
-      append_hydration(div249, div232);
-      append_hydration(div232, p48);
-      append_hydration(p48, t336);
-      append_hydration(div232, t337);
-      append_hydration(div232, div216);
-      append_hydration(div216, p49);
-      append_hydration(p49, t338);
-      append_hydration(div216, t339);
-      append_hydration(div216, div215);
-      append_hydration(div215, div214);
-      append_hydration(div232, t340);
-      append_hydration(div232, div219);
-      append_hydration(div219, p50);
-      append_hydration(p50, t341);
-      append_hydration(div219, t342);
-      append_hydration(div219, div218);
-      append_hydration(div218, div217);
-      append_hydration(div232, t343);
-      append_hydration(div232, div222);
-      append_hydration(div222, p51);
-      append_hydration(p51, t344);
-      append_hydration(div222, t345);
-      append_hydration(div222, div221);
-      append_hydration(div221, div220);
-      append_hydration(div232, t346);
-      append_hydration(div232, div225);
-      append_hydration(div225, p52);
-      append_hydration(p52, t347);
-      append_hydration(div225, t348);
-      append_hydration(div225, div224);
-      append_hydration(div224, div223);
-      append_hydration(div232, t349);
-      append_hydration(div232, div228);
-      append_hydration(div228, p53);
-      append_hydration(p53, t350);
-      append_hydration(div228, t351);
-      append_hydration(div228, div227);
-      append_hydration(div227, div226);
-      append_hydration(div232, t352);
-      append_hydration(div232, div231);
-      append_hydration(div231, p54);
-      append_hydration(p54, t353);
-      append_hydration(div231, t354);
-      append_hydration(div231, div230);
-      append_hydration(div230, div229);
-      append_hydration(div249, t355);
-      append_hydration(div249, div248);
-      append_hydration(div248, p55);
-      append_hydration(p55, t356);
-      append_hydration(div248, t357);
-      append_hydration(div248, div235);
-      append_hydration(div235, p56);
-      append_hydration(p56, t358);
-      append_hydration(div235, t359);
-      append_hydration(div235, div234);
-      append_hydration(div234, div233);
-      append_hydration(div248, t360);
-      append_hydration(div248, div238);
-      append_hydration(div238, p57);
-      append_hydration(p57, t361);
-      append_hydration(div238, t362);
-      append_hydration(div238, div237);
-      append_hydration(div237, div236);
-      append_hydration(div248, t363);
-      append_hydration(div248, div241);
-      append_hydration(div241, p58);
-      append_hydration(p58, t364);
-      append_hydration(div241, t365);
-      append_hydration(div241, div240);
-      append_hydration(div240, div239);
-      append_hydration(div248, t366);
-      append_hydration(div248, div244);
-      append_hydration(div244, p59);
-      append_hydration(p59, t367);
-      append_hydration(div244, t368);
-      append_hydration(div244, div243);
-      append_hydration(div243, div242);
-      append_hydration(div248, t369);
-      append_hydration(div248, div247);
-      append_hydration(div247, p60);
-      append_hydration(p60, t370);
-      append_hydration(div247, t371);
-      append_hydration(div247, div246);
-      append_hydration(div246, div245);
+      mount_component(hardskillssection0, div160, null);
+      append_hydration(div160, t279);
+      mount_component(hardskillssection1, div160, null);
+      append_hydration(div160, t280);
+      mount_component(hardskillssection2, div160, null);
+      append_hydration(div160, t281);
+      mount_component(hardskillssection3, div160, null);
+      append_hydration(div160, t282);
+      mount_component(hardskillssection4, div160, null);
+      current = true;
     },
     p: noop,
-    i: noop,
-    o: noop,
+    i(local) {
+      if (current)
+        return;
+      transition_in(hardskillssection0.$$.fragment, local);
+      transition_in(hardskillssection1.$$.fragment, local);
+      transition_in(hardskillssection2.$$.fragment, local);
+      transition_in(hardskillssection3.$$.fragment, local);
+      transition_in(hardskillssection4.$$.fragment, local);
+      current = true;
+    },
+    o(local) {
+      transition_out(hardskillssection0.$$.fragment, local);
+      transition_out(hardskillssection1.$$.fragment, local);
+      transition_out(hardskillssection2.$$.fragment, local);
+      transition_out(hardskillssection3.$$.fragment, local);
+      transition_out(hardskillssection4.$$.fragment, local);
+      current = false;
+    },
     d(detaching) {
       if (detaching)
-        detach(div252);
+        detach(div163);
+      destroy_component(hardskillssection0);
+      destroy_component(hardskillssection1);
+      destroy_component(hardskillssection2);
+      destroy_component(hardskillssection3);
+      destroy_component(hardskillssection4);
     }
   };
 }

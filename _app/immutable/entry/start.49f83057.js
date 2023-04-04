@@ -50,9 +50,9 @@ const DATA_SUFFIX = "/__data.json";
 function add_data_suffix(pathname) {
   return pathname.replace(/\/$/, "") + DATA_SUFFIX;
 }
-const base = ((_a = globalThis.__sveltekit_puwlhz) == null ? void 0 : _a.base) ?? "";
-const assets = ((_b = globalThis.__sveltekit_puwlhz) == null ? void 0 : _b.assets) ?? base;
-const version = "1680626503944";
+const base = ((_a = globalThis.__sveltekit_mms68r) == null ? void 0 : _a.base) ?? "";
+const assets = ((_b = globalThis.__sveltekit_mms68r) == null ? void 0 : _b.assets) ?? base;
+const version = "1680627674623";
 const SNAPSHOT_KEY = "sveltekit:snapshot";
 const SCROLL_KEY = "sveltekit:scroll";
 const INDEX_KEY = "sveltekit:index";
