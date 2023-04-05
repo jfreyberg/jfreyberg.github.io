@@ -832,10 +832,13 @@ function create_fragment(ctx) {
       skills: [
         "Python",
         "R",
+        "ML",
         "Statistics",
-        "Matlab",
-        "Machine Learning",
-        "Data Visualization"
+        "Spark",
+        "Kibana",
+        "Pipelines",
+        "Visualization",
+        "Matlab"
       ],
       color: "#8b91e3"
     }
@@ -850,7 +853,8 @@ function create_fragment(ctx) {
         "MongoDB",
         "Redis",
         "Supabase",
-        "Kafka"
+        "Kafka",
+        "RabbitMQ"
       ],
       color: "#f9d29b"
     }
@@ -3023,7 +3027,7 @@ function create_fragment(ctx) {
       attr(div157, "class", "flex flex-none items-center");
       attr(div158, "class", "w-full bg-gray-300 h-0.5 top-3 mt-0.5 z-20 rounded-full mr-4");
       attr(div159, "class", "w-full flex font-bold items-center");
-      attr(div160, "class", "grid grid-cols-3 lg:grid-cols-5 gap-4");
+      attr(div160, "class", "grid grid-cols-2 lg:grid-cols-5 gap-4");
       attr(div161, "class", "flex flex-col gap-y-4 p-4 mt-2");
       attr(div162, "class", "overflow-hidden h-full");
       attr(div163, "class", "relative");
