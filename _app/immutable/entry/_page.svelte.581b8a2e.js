@@ -1,6 +1,6 @@
 import { H as identity, S as SvelteComponent, i as init, s as safe_not_equal, k as element, a as space, l as claim_element, m as children, h as detach, c as claim_space, n as attr, p as set_style, b as insert_hydration, I as append_hydration, J as listen, K as update_keyed_each, g as transition_in, d as transition_out, f as check_outros, L as component_subscribe, o as onMount, e as empty, M as destroy_block, q as text, r as claim_text, u as set_data, N as add_render_callback, O as create_in_transition, G as noop, P as run_all, v as group_outros, Q as create_out_transition, R as svg_element, y as create_component, T as claim_svg_element, z as claim_component, A as mount_component, B as destroy_component, w as binding_callbacks } from "../chunks/index.0616d844.js";
 import { w as writable } from "../chunks/index.18cba605.js";
-import { C as CV } from "../chunks/CV.9e11b545.js";
+import { C as CV } from "../chunks/CV.6fcf28b1.js";
 function cubicOut(t) {
   const f = t - 1;
   return f * f * f + 1;
@@ -41,7 +41,7 @@ function get_each_context_1(ctx, list, i) {
   child_ctx[47] = list[i];
   const constants_0 = (
     /*$snake*/
-    child_ctx[13].slice(-1)[0]
+    child_ctx[11].slice(-1)[0]
   );
   child_ctx[48] = constants_0;
   const constants_1 = (
@@ -51,10 +51,10 @@ function get_each_context_1(ctx, list, i) {
     child_ctx[44] == /*food*/
     child_ctx[1][1] ? "food" : (
       /*$snake*/
-      child_ctx[13].some(function func(...args) {
+      child_ctx[11].some(function func(...args) {
         return (
           /*func*/
-          ctx[18](
+          ctx[16](
             /*col*/
             child_ctx[47],
             /*row*/
@@ -120,13 +120,13 @@ function create_each_block_1(key_1, ctx) {
     p(new_ctx, dirty) {
       ctx = new_ctx;
       if (dirty[0] & /*cols, rows*/
-      4097 && div_id_value !== (div_id_value = "tile-" + /*col*/
+      1025 && div_id_value !== (div_id_value = "tile-" + /*col*/
       ctx[47] + "-" + /*row*/
       ctx[44])) {
         attr(div, "id", div_id_value);
       }
       if (dirty[0] & /*cols, food, rows, $snake*/
-      12291) {
+      3075) {
         set_style(
           div,
           "background-color",
@@ -191,7 +191,7 @@ function create_each_block(key_1, ctx) {
     p(new_ctx, dirty) {
       ctx = new_ctx;
       if (dirty[0] & /*cols, rows, food, $snake*/
-      12291) {
+      3075) {
         each_value_1 = [...Array(
           /*cols*/
           ctx[0]
@@ -210,7 +210,7 @@ function create_each_block(key_1, ctx) {
     }
   };
 }
-function create_if_block_7(ctx) {
+function create_if_block_5(ctx) {
   let div;
   let span2;
   let span0;
@@ -262,7 +262,7 @@ function create_if_block_7(ctx) {
       attr(span1, "class", "inline lg:hidden");
       attr(span2, "class", "bg-black text-xs font-semibold bg-opacity-20 rounded-md h-6 leading-4 py-1 px-2");
       attr(div, "class", div_class_value = "w-full absolute " + /*scrolled80pt*/
-      (ctx[11] ? "-top-12" : "top-3") + " flex items-center justify-center transition-all duration-300");
+      (ctx[9] ? "-top-12" : "top-3") + " flex items-center justify-center transition-all duration-300");
     },
     m(target, anchor) {
       insert_hydration(target, div, anchor);
@@ -278,7 +278,7 @@ function create_if_block_7(ctx) {
           span2,
           "click",
           /*click_handler*/
-          ctx[19]
+          ctx[17]
         );
         mounted = true;
       }
@@ -289,8 +289,8 @@ function create_if_block_7(ctx) {
       ctx2[4] ? "resume" : "pause"))
         set_data(t3, t3_value);
       if (dirty[0] & /*scrolled80pt*/
-      2048 && div_class_value !== (div_class_value = "w-full absolute " + /*scrolled80pt*/
-      (ctx2[11] ? "-top-12" : "top-3") + " flex items-center justify-center transition-all duration-300")) {
+      512 && div_class_value !== (div_class_value = "w-full absolute " + /*scrolled80pt*/
+      (ctx2[9] ? "-top-12" : "top-3") + " flex items-center justify-center transition-all duration-300")) {
         attr(div, "class", div_class_value);
       }
     },
@@ -302,7 +302,7 @@ function create_if_block_7(ctx) {
     }
   };
 }
-function create_if_block_6(ctx) {
+function create_if_block_4(ctx) {
   let div;
   let span2;
   let span0;
@@ -347,7 +347,7 @@ function create_if_block_6(ctx) {
       attr(span1, "class", "hidden lg:inline");
       attr(span2, "class", "bg-black text-xs font-semibold bg-opacity-20 rounded-md h-6 leading-4 py-1 px-2");
       attr(div, "class", div_class_value = "w-full absolute " + /*scrolled80pt*/
-      (ctx[11] ? "-top-12" : "top-3") + " flex items-center justify-center transition-all duration-300");
+      (ctx[9] ? "-top-12" : "top-3") + " flex items-center justify-center transition-all duration-300");
     },
     m(target, anchor) {
       insert_hydration(target, div, anchor);
@@ -362,15 +362,15 @@ function create_if_block_6(ctx) {
           span2,
           "click",
           /*click_handler_1*/
-          ctx[20]
+          ctx[18]
         );
         mounted = true;
       }
     },
     p(ctx2, dirty) {
       if (dirty[0] & /*scrolled80pt*/
-      2048 && div_class_value !== (div_class_value = "w-full absolute " + /*scrolled80pt*/
-      (ctx2[11] ? "-top-12" : "top-3") + " flex items-center justify-center transition-all duration-300")) {
+      512 && div_class_value !== (div_class_value = "w-full absolute " + /*scrolled80pt*/
+      (ctx2[9] ? "-top-12" : "top-3") + " flex items-center justify-center transition-all duration-300")) {
         attr(div, "class", div_class_value);
       }
     },
@@ -383,114 +383,44 @@ function create_if_block_6(ctx) {
   };
 }
 function create_if_block_3(ctx) {
-  let t0;
   let p;
-  let t1;
+  let t;
   let p_intro;
-  let t2;
-  let if_block1_anchor;
-  let if_block0 = (
-    /*totalScore*/
-    ctx[7] > /*score*/
-    ctx[5] && create_if_block_5(ctx)
-  );
-  let if_block1 = (
-    /*maxScore*/
-    (ctx[6] != /*totalScore*/
-    ctx[7] || /*maxScore*/
-    ctx[6] != /*score*/
-    ctx[5]) && create_if_block_4(ctx)
-  );
   return {
     c() {
-      if (if_block0)
-        if_block0.c();
-      t0 = space();
       p = element("p");
-      t1 = text(
+      t = text(
         /*score*/
         ctx[5]
       );
-      t2 = space();
-      if (if_block1)
-        if_block1.c();
-      if_block1_anchor = empty();
       this.h();
     },
     l(nodes) {
-      if (if_block0)
-        if_block0.l(nodes);
-      t0 = claim_space(nodes);
       p = claim_element(nodes, "P", { class: true });
       var p_nodes = children(p);
-      t1 = claim_text(
+      t = claim_text(
         p_nodes,
         /*score*/
         ctx[5]
       );
       p_nodes.forEach(detach);
-      t2 = claim_space(nodes);
-      if (if_block1)
-        if_block1.l(nodes);
-      if_block1_anchor = empty();
       this.h();
     },
     h() {
       attr(p, "class", "text-xl md:text-2xl lg:text-3xl xl:text-5xl text-white font-extrabold");
     },
     m(target, anchor) {
-      if (if_block0)
-        if_block0.m(target, anchor);
-      insert_hydration(target, t0, anchor);
       insert_hydration(target, p, anchor);
-      append_hydration(p, t1);
-      insert_hydration(target, t2, anchor);
-      if (if_block1)
-        if_block1.m(target, anchor);
-      insert_hydration(target, if_block1_anchor, anchor);
+      append_hydration(p, t);
     },
     p(ctx2, dirty) {
-      if (
-        /*totalScore*/
-        ctx2[7] > /*score*/
-        ctx2[5]
-      ) {
-        if (if_block0) {
-          if_block0.p(ctx2, dirty);
-        } else {
-          if_block0 = create_if_block_5(ctx2);
-          if_block0.c();
-          if_block0.m(t0.parentNode, t0);
-        }
-      } else if (if_block0) {
-        if_block0.d(1);
-        if_block0 = null;
-      }
       if (dirty[0] & /*score*/
       32)
         set_data(
-          t1,
+          t,
           /*score*/
           ctx2[5]
         );
-      if (
-        /*maxScore*/
-        ctx2[6] != /*totalScore*/
-        ctx2[7] || /*maxScore*/
-        ctx2[6] != /*score*/
-        ctx2[5]
-      ) {
-        if (if_block1) {
-          if_block1.p(ctx2, dirty);
-        } else {
-          if_block1 = create_if_block_4(ctx2);
-          if_block1.c();
-          if_block1.m(if_block1_anchor.parentNode, if_block1_anchor);
-        }
-      } else if (if_block1) {
-        if_block1.d(1);
-        if_block1 = null;
-      }
     },
     i(local) {
       if (!p_intro) {
@@ -501,106 +431,6 @@ function create_if_block_3(ctx) {
       }
     },
     o: noop,
-    d(detaching) {
-      if (if_block0)
-        if_block0.d(detaching);
-      if (detaching)
-        detach(t0);
-      if (detaching)
-        detach(p);
-      if (detaching)
-        detach(t2);
-      if (if_block1)
-        if_block1.d(detaching);
-      if (detaching)
-        detach(if_block1_anchor);
-    }
-  };
-}
-function create_if_block_5(ctx) {
-  let p;
-  let t;
-  return {
-    c() {
-      p = element("p");
-      t = text(
-        /*totalScore*/
-        ctx[7]
-      );
-      this.h();
-    },
-    l(nodes) {
-      p = claim_element(nodes, "P", { class: true });
-      var p_nodes = children(p);
-      t = claim_text(
-        p_nodes,
-        /*totalScore*/
-        ctx[7]
-      );
-      p_nodes.forEach(detach);
-      this.h();
-    },
-    h() {
-      attr(p, "class", "text-md sm:text-lg md:text-xl lg:text-2xl text-white font-extrabold");
-    },
-    m(target, anchor) {
-      insert_hydration(target, p, anchor);
-      append_hydration(p, t);
-    },
-    p(ctx2, dirty) {
-      if (dirty[0] & /*totalScore*/
-      128)
-        set_data(
-          t,
-          /*totalScore*/
-          ctx2[7]
-        );
-    },
-    d(detaching) {
-      if (detaching)
-        detach(p);
-    }
-  };
-}
-function create_if_block_4(ctx) {
-  let p;
-  let t;
-  return {
-    c() {
-      p = element("p");
-      t = text(
-        /*maxScore*/
-        ctx[6]
-      );
-      this.h();
-    },
-    l(nodes) {
-      p = claim_element(nodes, "P", { class: true });
-      var p_nodes = children(p);
-      t = claim_text(
-        p_nodes,
-        /*maxScore*/
-        ctx[6]
-      );
-      p_nodes.forEach(detach);
-      this.h();
-    },
-    h() {
-      attr(p, "class", "text-md sm:text-lg md:text-xl lg:text-2xl text-white font-extrabold");
-    },
-    m(target, anchor) {
-      insert_hydration(target, p, anchor);
-      append_hydration(p, t);
-    },
-    p(ctx2, dirty) {
-      if (dirty[0] & /*maxScore*/
-      64)
-        set_data(
-          t,
-          /*maxScore*/
-          ctx2[6]
-        );
-    },
     d(detaching) {
       if (detaching)
         detach(p);
@@ -759,25 +589,25 @@ function create_if_block_2(ctx) {
             div1,
             "click",
             /*click_handler_2*/
-            ctx[21]
+            ctx[19]
           ),
           listen(
             div4,
             "click",
             /*click_handler_3*/
-            ctx[22]
+            ctx[20]
           ),
           listen(
             div7,
             "click",
             /*click_handler_4*/
-            ctx[23]
+            ctx[21]
           ),
           listen(
             div10,
             "click",
             /*click_handler_5*/
-            ctx[24]
+            ctx[22]
           )
         ];
         mounted = true;
@@ -807,7 +637,7 @@ function create_if_block(ctx) {
   let dispose;
   let if_block = (
     /*mounted*/
-    ctx[8] && create_if_block_1(ctx)
+    ctx[6] && create_if_block_1(ctx)
   );
   return {
     c() {
@@ -848,7 +678,7 @@ function create_if_block(ctx) {
       attr(div1, "class", "w-full h-full overflow-y-scroll grid justify-center pt-96 pb-32 lg:py-96");
       attr(div2, "id", "overlay3");
       set_style(div2, "background-color", "rgba(0,0,0, " + (0.3 + /*extraDarkness*/
-      ctx[10]) + ")");
+      ctx[8]) + ")");
       attr(div2, "class", "w-full h-full transition-all duration-300 absolute top-0 left-0 flex items-end justify-center z-40");
     },
     m(target, anchor) {
@@ -861,7 +691,7 @@ function create_if_block(ctx) {
       append_hydration(div2, div1);
       if (if_block)
         if_block.m(div1, null);
-      ctx[27](div1);
+      ctx[25](div1);
       current = true;
       if (!mounted) {
         dispose = [
@@ -869,14 +699,14 @@ function create_if_block(ctx) {
             div1,
             "wheel",
             /*wheel_handler*/
-            ctx[28],
+            ctx[26],
             { passive: true }
           ),
           listen(
             div1,
             "touchmove",
             /*touchmove_handler*/
-            ctx[29],
+            ctx[27],
             { passive: true }
           )
         ];
@@ -886,12 +716,12 @@ function create_if_block(ctx) {
     p(ctx2, dirty) {
       if (
         /*mounted*/
-        ctx2[8]
+        ctx2[6]
       ) {
         if (if_block) {
           if_block.p(ctx2, dirty);
           if (dirty[0] & /*mounted*/
-          256) {
+          64) {
             transition_in(if_block, 1);
           }
         } else {
@@ -908,9 +738,9 @@ function create_if_block(ctx) {
         check_outros();
       }
       if (!current || dirty[0] & /*extraDarkness*/
-      1024) {
+      256) {
         set_style(div2, "background-color", "rgba(0,0,0, " + (0.3 + /*extraDarkness*/
-        ctx2[10]) + ")");
+        ctx2[8]) + ")");
       }
     },
     i(local) {
@@ -937,7 +767,7 @@ function create_if_block(ctx) {
         detach(div2);
       if (if_block)
         if_block.d();
-      ctx[27](null);
+      ctx[25](null);
       if (detaching && div2_outro)
         div2_outro.end();
       mounted = false;
@@ -1011,13 +841,13 @@ function create_if_block_1(ctx) {
             div1,
             "mouseenter",
             /*mouseenter_handler*/
-            ctx[25]
+            ctx[23]
           ),
           listen(
             div1,
             "mouseleave",
             /*mouseleave_handler*/
-            ctx[26]
+            ctx[24]
           )
         ];
         mounted = true;
@@ -1066,7 +896,7 @@ function create_fragment(ctx) {
   let dispose;
   let each_value = [...Array(
     /*rows*/
-    ctx[12]
+    ctx[10]
   ).keys()];
   const get_key = (ctx2) => (
     /*row*/
@@ -1079,11 +909,11 @@ function create_fragment(ctx) {
   }
   let if_block0 = (
     /*inputDirection*/
-    ctx[3] && create_if_block_7(ctx)
+    ctx[3] && create_if_block_5(ctx)
   );
   let if_block1 = !/*inputDirection*/
   ctx[3] && /*gamePaused*/
-  ctx[4] && create_if_block_6(ctx);
+  ctx[4] && create_if_block_4(ctx);
   let if_block2 = !/*gamePaused*/
   ctx[4] && create_if_block_3(ctx);
   let if_block3 = !/*gamePaused*/
@@ -1192,17 +1022,17 @@ function create_fragment(ctx) {
           div3,
           "mousemove",
           /*mousemove_handler*/
-          ctx[30]
+          ctx[28]
         );
         mounted = true;
       }
     },
     p(ctx2, dirty) {
       if (dirty[0] & /*cols, rows, food, $snake*/
-      12291) {
+      3075) {
         each_value = [...Array(
           /*rows*/
-          ctx2[12]
+          ctx2[10]
         ).keys()];
         each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx2, each_value, each_1_lookup, div0, destroy_block, create_each_block, null, get_each_context);
       }
@@ -1218,7 +1048,7 @@ function create_fragment(ctx) {
         if (if_block0) {
           if_block0.p(ctx2, dirty);
         } else {
-          if_block0 = create_if_block_7(ctx2);
+          if_block0 = create_if_block_5(ctx2);
           if_block0.c();
           if_block0.m(div1, t1);
         }
@@ -1232,7 +1062,7 @@ function create_fragment(ctx) {
         if (if_block1) {
           if_block1.p(ctx2, dirty);
         } else {
-          if_block1 = create_if_block_6(ctx2);
+          if_block1 = create_if_block_4(ctx2);
           if_block1.c();
           if_block1.m(div1, null);
         }
@@ -1348,14 +1178,12 @@ function instance($$self, $$props, $$invalidate) {
   let aspect_ratio = 0;
   let food = [-1, -1];
   let snake = writable([]);
-  component_subscribe($$self, snake, (value) => $$invalidate(13, $snake = value));
+  component_subscribe($$self, snake, (value) => $$invalidate(11, $snake = value));
   let mousePos = [200, 200];
   let inputDirection = false;
   let gamePaused = true;
   let cooldown = false;
   let score = 0;
-  let maxScore = 0;
-  let totalScore = 3;
   let mounted = false;
   let scrollContainer;
   let extraDarkness = 0;
@@ -1459,7 +1287,6 @@ function instance($$self, $$props, $$invalidate) {
       if (newHead[0] == food[0] && newHead[1] == food[1]) {
         old_snake = $snake2;
         spawnFood();
-        $$invalidate(7, totalScore += 1);
       }
       return [...old_snake, newHead];
     });
@@ -1479,7 +1306,7 @@ function instance($$self, $$props, $$invalidate) {
     );
   }
   onMount(() => {
-    $$invalidate(16, aspect_ratio = window.screen.height / window.screen.width);
+    $$invalidate(14, aspect_ratio = window.screen.height / window.screen.width);
     if (aspect_ratio > 0.8) {
       $$invalidate(0, cols = 16);
     }
@@ -1487,7 +1314,7 @@ function instance($$self, $$props, $$invalidate) {
       $$invalidate(0, cols = 8);
     }
     document.onkeydown = checkKey;
-    $$invalidate(8, mounted = true);
+    $$invalidate(6, mounted = true);
     setTimeout(
       () => {
         spawnSnake();
@@ -1502,10 +1329,7 @@ function instance($$self, $$props, $$invalidate) {
     );
   });
   snake.subscribe((snake_) => {
-    $$invalidate(5, score = snake_.length);
-    if (score > maxScore) {
-      $$invalidate(6, maxScore = score);
-    }
+    $$invalidate(5, score = snake_.length - 3);
     speed = score / 4;
   });
   function checkKey(e) {
@@ -1563,27 +1387,27 @@ function instance($$self, $$props, $$invalidate) {
   const click_handler_4 = () => checkKey({ keyCode: 39 });
   const click_handler_5 = () => checkKey({ keyCode: 40 });
   const mouseenter_handler = () => {
-    $$invalidate(10, extraDarkness = 0.4);
+    $$invalidate(8, extraDarkness = 0.4);
   };
   const mouseleave_handler = () => {
-    $$invalidate(10, extraDarkness = 0);
+    $$invalidate(8, extraDarkness = 0);
   };
   function div1_binding($$value) {
     binding_callbacks[$$value ? "unshift" : "push"](() => {
       scrollContainer = $$value;
-      $$invalidate(9, scrollContainer);
+      $$invalidate(7, scrollContainer);
     });
   }
   const wheel_handler = () => {
     setTimeout(
       () => {
-        $$invalidate(11, scrolled80pt = scrollContainer.scrollTop > 280);
+        $$invalidate(9, scrolled80pt = scrollContainer.scrollTop > 280);
         setTimeout(
           () => {
-            $$invalidate(11, scrolled80pt = scrollContainer.scrollTop > 280);
+            $$invalidate(9, scrolled80pt = scrollContainer.scrollTop > 280);
             setTimeout(
               () => {
-                $$invalidate(11, scrolled80pt = scrollContainer.scrollTop > 280);
+                $$invalidate(9, scrolled80pt = scrollContainer.scrollTop > 280);
               },
               300
             );
@@ -1593,18 +1417,18 @@ function instance($$self, $$props, $$invalidate) {
       },
       300
     );
-    $$invalidate(11, scrolled80pt = scrollContainer.scrollTop > 280);
+    $$invalidate(9, scrolled80pt = scrollContainer.scrollTop > 280);
   };
   const touchmove_handler = () => {
     setTimeout(
       () => {
-        $$invalidate(11, scrolled80pt = scrollContainer.scrollTop > 280);
+        $$invalidate(9, scrolled80pt = scrollContainer.scrollTop > 280);
         setTimeout(
           () => {
-            $$invalidate(11, scrolled80pt = scrollContainer.scrollTop > 280);
+            $$invalidate(9, scrolled80pt = scrollContainer.scrollTop > 280);
             setTimeout(
               () => {
-                $$invalidate(11, scrolled80pt = scrollContainer.scrollTop > 280);
+                $$invalidate(9, scrolled80pt = scrollContainer.scrollTop > 280);
               },
               300
             );
@@ -1614,23 +1438,23 @@ function instance($$self, $$props, $$invalidate) {
       },
       300
     );
-    $$invalidate(11, scrolled80pt = scrollContainer.scrollTop > 280);
+    $$invalidate(9, scrolled80pt = scrollContainer.scrollTop > 280);
   };
   const mousemove_handler = (e) => {
     $$invalidate(2, mousePos = [e.clientX, e.clientY]);
   };
   $$self.$$.update = () => {
     if ($$self.$$.dirty[0] & /*cols, aspect_ratio*/
-    65537) {
-      $$invalidate(12, rows = Math.floor(cols * aspect_ratio));
+    16385) {
+      $$invalidate(10, rows = Math.floor(cols * aspect_ratio));
     }
     if ($$self.$$.dirty[0] & /*topSpace*/
-    131072) {
+    32768) {
       console.log(scrolled);
     }
   };
   $$invalidate(
-    17,
+    15,
     topSpace = "96"
   );
   return [
@@ -1640,8 +1464,6 @@ function instance($$self, $$props, $$invalidate) {
     inputDirection,
     gamePaused,
     score,
-    maxScore,
-    totalScore,
     mounted,
     scrollContainer,
     extraDarkness,
