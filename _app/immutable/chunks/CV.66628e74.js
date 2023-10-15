@@ -3586,7 +3586,7 @@ function create_fragment(ctx) {
       attr(img15, "class", "w-4 h-4 mr-2");
       attr(div69, "class", "mr-4");
       attr(div70, "class", "flex flex-none items-center");
-      attr(div71, "class", "w-full bg-gray-300 h-0.5 top-3 mt-0.5 z-20 rounded-full mr-4");
+      attr(div71, "class", "w-full bg-gray-300 h-0.5 top-3 mt-0.5 z-20 rounded-full");
       attr(div72, "class", div72_class_value = "w-full font-bold items-center " + /*plain*/
       (ctx[0] ? "hidden" : "flex"));
       if (!src_url_equal(img16.src, img16_src_value = "feathericons/zap.svg"))
@@ -3635,7 +3635,7 @@ function create_fragment(ctx) {
       attr(img20, "class", "w-4 h-4 mr-2");
       attr(div96, "class", "mr-4");
       attr(div97, "class", "flex flex-none items-center");
-      attr(div98, "class", "w-full bg-gray-300 h-0.5 top-3 mt-0.5 z-20 rounded-full mr-4");
+      attr(div98, "class", "w-full bg-gray-300 h-0.5 top-3 mt-0.5 z-20 rounded-full");
       attr(div99, "class", "w-full flex font-bold items-center");
       attr(div100, "class", "flex items-center text-sm font-semibold");
       attr(div101, "class", "ml-2 md:ml-4 print:ml-4 mt-2 text-xs");
@@ -3830,7 +3830,7 @@ function create_fragment(ctx) {
       attr(img32, "class", "w-4 h-4 mr-2");
       attr(div178, "class", "mr-4");
       attr(div179, "class", "flex flex-none items-center");
-      attr(div180, "class", "w-full bg-gray-300 h-0.5 top-3 mt-0.5 z-20 rounded-full mr-4");
+      attr(div180, "class", "w-full bg-gray-300 h-0.5 top-3 mt-0.5 z-20 rounded-full mr-2");
       attr(div181, "class", div181_class_value = "w-full font-bold items-center " + /*plain*/
       (ctx[0] ? "flex" : "hidden"));
       if (!src_url_equal(img33.src, img33_src_value = "feathericons/zap.svg"))
