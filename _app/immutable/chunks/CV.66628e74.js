@@ -1146,7 +1146,7 @@ function create_fragment(ctx) {
       div7 = element("div");
       div6 = element("div");
       img2 = element("img");
-      t11 = text("\n            25 years old");
+      t11 = text("\n            26 years old");
       t12 = space();
       div8 = element("div");
       a1 = element("a");
@@ -1958,7 +1958,7 @@ function create_fragment(ctx) {
       var div6_nodes = children(div6);
       img2 = claim_element(div6_nodes, "IMG", { src: true, class: true });
       div6_nodes.forEach(detach);
-      t11 = claim_text(div7_nodes, "\n            25 years old");
+      t11 = claim_text(div7_nodes, "\n            26 years old");
       div7_nodes.forEach(detach);
       t12 = claim_space(div11_nodes);
       div8 = claim_element(div11_nodes, "DIV", { class: true });
