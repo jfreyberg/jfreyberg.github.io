@@ -1065,12 +1065,11 @@ function create_fragment(ctx) {
       skills: [
         "Python",
         "R",
-        "ML",
+        "PyTorch",
+        "sklearn",
+        "NLP",
         "Statistics",
-        "Spark",
-        "Kibana",
-        "Pipelines",
-        "Visualization"
+        "DataPipelines",
       ],
       color: "#8b91e3"
     }
@@ -1081,11 +1080,12 @@ function create_fragment(ctx) {
       skills: [
         "SQL",
         "Postgres",
-        "Elasticsearch",
+        "Elastic-/Opensearch",
         "MongoDB",
+        "Qdrant",
         "Redis",
         "Supabase",
-        "Kafka"
+        "RabbitMQ",
       ],
       color: "#f9d29b"
     }
@@ -1093,21 +1093,21 @@ function create_fragment(ctx) {
   hardskillssection2 = new HardSkillsSection({
     props: {
       title: "Backend",
-      skills: ["FastAPI", "Django", "Node", "OOP", "Java", "PHP", "C#/C++"],
+      skills: ["FastAPI", "Django", "Node", "SvelteKit", "Java", "PHP", "C#/C++"],
       color: "#f9b4b6"
     }
   });
   hardskillssection3 = new HardSkillsSection({
     props: {
       title: "Frontend",
-      skills: ["JavaScript", "React", "HTML/CSS", "Svelte", "Tailwind", "UI Design"],
+      skills: ["Type-/JavaScript", "HTML/CSS", "Svelte", "React", "Tailwind", "UI Design"],
       color: "#cce0b0"
     }
   });
   hardskillssection4 = new HardSkillsSection({
     props: {
       title: "DevOps",
-      skills: ["Docker", "Git", "VS Code", "Jupyter", "Linux", "bash", "GCP"],
+      skills: ["Docker", "Github Actions", "Jupyter", "Linux", "bash", "GCP", "Kubernetes"],
       color: "#d9c1f5"
     }
   });
@@ -1135,7 +1135,7 @@ function create_fragment(ctx) {
       span1 = element("span");
       t6 = text("·");
       span2 = element("span");
-      t7 = text("Full-Stack Developer");
+      t7 = text("Full-Stack Engineer");
       t8 = space();
       div11 = element("div");
       div5 = element("div");
@@ -1146,14 +1146,14 @@ function create_fragment(ctx) {
       div7 = element("div");
       div6 = element("div");
       img2 = element("img");
-      t11 = text("\n            26 years old");
+      t11 = text("\n            27 years old");
       t12 = space();
       div8 = element("div");
       a1 = element("a");
       img3 = element("img");
       t13 = space();
       span3 = element("span");
-      t14 = text("julian_freyberg@live.de");
+      t14 = text("julian.freyberg98@gmail.com");
       t15 = space();
       div9 = element("div");
       a2 = element("a");
@@ -1936,7 +1936,7 @@ function create_fragment(ctx) {
       span1_nodes.forEach(detach);
       span2 = claim_element(div2_nodes, "SPAN", { class: true });
       var span2_nodes = children(span2);
-      t7 = claim_text(span2_nodes, "Full-Stack Developer");
+      t7 = claim_text(span2_nodes, "Full-Stack Engineer");
       span2_nodes.forEach(detach);
       div2_nodes.forEach(detach);
       div3_nodes.forEach(detach);
@@ -1958,7 +1958,7 @@ function create_fragment(ctx) {
       var div6_nodes = children(div6);
       img2 = claim_element(div6_nodes, "IMG", { src: true, class: true });
       div6_nodes.forEach(detach);
-      t11 = claim_text(div7_nodes, "\n            26 years old");
+      t11 = claim_text(div7_nodes, "\n            27 years old");
       div7_nodes.forEach(detach);
       t12 = claim_space(div11_nodes);
       div8 = claim_element(div11_nodes, "DIV", { class: true });
@@ -1969,7 +1969,7 @@ function create_fragment(ctx) {
       t13 = claim_space(a1_nodes);
       span3 = claim_element(a1_nodes, "SPAN", { class: true });
       var span3_nodes = children(span3);
-      t14 = claim_text(span3_nodes, "julian_freyberg@live.de");
+      t14 = claim_text(span3_nodes, "julian.freyberg98@gmail.com");
       span3_nodes.forEach(detach);
       a1_nodes.forEach(detach);
       div8_nodes.forEach(detach);
@@ -3441,7 +3441,7 @@ function create_fragment(ctx) {
         attr(img3, "src", img3_src_value);
       attr(img3, "class", "w-4 h-4 mr-2");
       attr(span3, "class", "hidden md:flex print:flex");
-      attr(a1, "href", "mailto:julian_freyberg@live.de");
+      attr(a1, "href", "mailto:julian.freyberg98@gmail.com");
       attr(a1, "class", "flex items-center");
       attr(div8, "class", "flex items-center justify-start");
       if (!src_url_equal(img4.src, img4_src_value = "imgs/in.png"))
